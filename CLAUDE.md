@@ -86,7 +86,7 @@ tests/         # automated tests
 
 ### Art and audio
 - 2D isometric, 2:1 tiles. One character resolution and one palette for everything (set by the approved style test).
-- Placeholders: CC0 only (e.g. Kenney). Log every asset and its license in `CREDITS.md`.
+- Placeholders: CC0 or CC-BY (with the required credit in `CREDITS.md`), e.g. Kenney. Log every asset and its license in `CREDITS.md`.
 - Never use art, names, or text from Diablo, Path of Exile, or any other game.
 
 ### Approved asset sources
