@@ -52,6 +52,11 @@ func get_move_vector() -> Vector2:
 	return move
 
 
+## True while the player is asking for Cleave (held = keep swinging).
+func wants_cleave() -> bool:
+	return Input.is_action_pressed("cleave")
+
+
 ## Which way the player is aiming, as a unit vector, for a character standing at
 ## [param origin] (world position).
 func get_aim_direction(origin: Vector2) -> Vector2:

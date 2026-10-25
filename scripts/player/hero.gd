@@ -11,6 +11,7 @@ var aim_direction: Vector2 = Vector2.RIGHT
 @onready var health: Health = $Health
 @onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _aim_indicator: Node2D = $AimIndicator
+@onready var _cleave: Cleave = $Cleave
 
 
 func _ready() -> void:
@@ -24,6 +25,8 @@ func _physics_process(delta: float) -> void:
 		return
 	_move(delta)
 	_update_aim()
+	if PlayerInput.wants_cleave():
+		_cleave.try_use(aim_direction)
 	_update_animation()
 
 

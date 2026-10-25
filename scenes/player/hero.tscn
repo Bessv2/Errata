@@ -5,6 +5,9 @@
 [ext_resource type="Script" path="res://scripts/player/hero.gd" id="3_hero"]
 [ext_resource type="Resource" path="res://data/hero/hero_stats.tres" id="4_stats"]
 [ext_resource type="Script" path="res://scripts/systems/health.gd" id="5_health"]
+[ext_resource type="Script" path="res://scripts/player/cleave.gd" id="6_cleave"]
+[ext_resource type="Resource" path="res://data/skills/cleave.tres" id="7_cleavedata"]
+[ext_resource type="Script" path="res://scripts/player/cleave_swing_visual.gd" id="8_swing"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32834"]
 radius = 6.0
@@ -20,6 +23,15 @@ shape = SubResource("CircleShape2D_32834")
 
 [node name="AimIndicator" type="Node2D" parent="." unique_id=1595284587]
 script = ExtResource("1_le7pp")
+
+[node name="Cleave" type="Node2D" parent="."]
+script = ExtResource("6_cleave")
+data = ExtResource("7_cleavedata")
+
+[node name="SwingVisual" type="Node2D" parent="." node_paths=PackedStringArray("cleave")]
+z_index = 1
+script = ExtResource("8_swing")
+cleave = NodePath("../Cleave")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=146155250]
 sprite_frames = ExtResource("2_hpob4")
