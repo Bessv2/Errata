@@ -2,6 +2,10 @@
 
 [ext_resource type="TileSet" path="res://scenes/world/arena_tiles.tres" id="1_pbd5s"]
 [ext_resource type="PackedScene" path="res://scenes/player/hero.tscn" id="2_ldtp4"]
+[ext_resource type="Script" path="res://scripts/systems/enemy_spawner.gd" id="3_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/void_mite.tscn" id="4_mite"]
+[ext_resource type="Resource" path="res://data/monsters/void_mite.tres" id="5_mitedata"]
+[ext_resource type="Resource" path="res://data/world/arena_spawns.tres" id="6_spawns"]
 
 [node name="Arena" type="Node2D" unique_id=2067695611]
 
@@ -31,3 +35,11 @@ polygon = PackedVector2Array(32, 0, 480, 224, 32, 448, -416, 224, 32, 0)
 
 [node name="HeroSpawn" type="Marker2D" parent="." unique_id=1958662881]
 position = Vector2(32, 224)
+
+[node name="Spawner" type="Node" parent="." node_paths=PackedStringArray("floor_layer", "container")]
+script = ExtResource("3_spawner")
+monster_scene = ExtResource("4_mite")
+monster_data = ExtResource("5_mitedata")
+config = ExtResource("6_spawns")
+floor_layer = NodePath("../Floor")
+container = NodePath("../Entities")

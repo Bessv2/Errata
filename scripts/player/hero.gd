@@ -8,11 +8,20 @@ extends CharacterBody2D
 ## Which way the hero is aiming right now (unit vector). Skills read this.
 var aim_direction: Vector2 = Vector2.RIGHT
 
+@onready var health: Health = $Health
 @onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _aim_indicator: Node2D = $AimIndicator
 
 
+func _ready() -> void:
+	add_to_group("hero")
+	health.reset(stats.max_hp)
+	health.died.connect(_on_died)
+
+
 func _physics_process(delta: float) -> void:
+	if health.is_dead():
+		return
 	_move(delta)
 	_update_aim()
 	_update_animation()
@@ -35,6 +44,15 @@ func _move(delta: float) -> void:
 func _update_aim() -> void:
 	aim_direction = PlayerInput.get_aim_direction(global_position)
 	_aim_indicator.rotation = aim_direction.angle()
+
+
+# --- Death -------------------------------------------------------------------
+
+# For now the hero just stops; the death screen with "Respawn nearby" comes next.
+func _on_died() -> void:
+	velocity = Vector2.ZERO
+	_aim_indicator.visible = false
+	CombatEvents.character_died.emit(self)
 
 
 # --- Animation ---------------------------------------------------------------

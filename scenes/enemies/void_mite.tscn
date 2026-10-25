@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/void_mite.gd" id="1_mite"]
+[ext_resource type="Resource" path="res://data/monsters/void_mite.tres" id="2_data"]
+[ext_resource type="Script" path="res://scripts/enemies/void_mite_visual.gd" id="3_visual"]
+[ext_resource type="Script" path="res://scripts/systems/health.gd" id="4_health"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mite"]
+radius = 5.0
+
+[node name="VoidMite" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_mite")
+data = ExtResource("2_data")
+
+[node name="Feet" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mite")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("3_visual")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_health")

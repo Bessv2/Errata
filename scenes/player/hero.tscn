@@ -4,11 +4,13 @@
 [ext_resource type="SpriteFrames" path="res://scenes/player/hero_frames.tres" id="2_hpob4"]
 [ext_resource type="Script" path="res://scripts/player/hero.gd" id="3_hero"]
 [ext_resource type="Resource" path="res://data/hero/hero_stats.tres" id="4_stats"]
+[ext_resource type="Script" path="res://scripts/systems/health.gd" id="5_health"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32834"]
 radius = 6.0
 
 [node name="Hero" type="CharacterBody2D" unique_id=1511143480]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("3_hero")
 stats = ExtResource("4_stats")
@@ -27,3 +29,6 @@ offset = Vector2(0, -48)
 [node name="Camera" type="Camera2D" parent="." unique_id=1993216075]
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("5_health")
