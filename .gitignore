@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# Raw asset packs Geordon drops in; only the files we use get copied to assets/
+_incoming/

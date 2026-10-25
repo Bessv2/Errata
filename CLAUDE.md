@@ -103,6 +103,13 @@ Rules:
 - Everything must match the art spec (isometric, one character resolution, one palette). Don't mix styles just because something is free.
 - Godot Asset Library plugins/addons are code, not assets: still ask before installing any of them, and explain what it does and why we need it.
 
+### The `_incoming` folder
+`C:\Godot\errata\_incoming\` holds assets Geordon has bought or downloaded himself. Everything in it is cleared for use; no licence approval needed. The other rules still apply:
+- Log every asset you use in CREDITS.md: name, creator, where it came from, licence (or "purchased"), and what it's used for. If the files don't say who made it or what the licence is, ask Geordon when you log it.
+- Check the contents: only images, audio, fonts or Godot resources get copied. If a pack contains an .exe, installer or script, don't copy it and tell him.
+- Everything must still match the art spec. Don't use something just because it's in the folder.
+- Copy only the files actually used into `assets/`. The folder itself is never committed (it's in `.gitignore`).
+
 ## Workflow
 
 1. Before starting, restate the task in one or two sentences and name the files you expect to touch.
