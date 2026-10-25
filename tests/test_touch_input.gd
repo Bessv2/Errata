@@ -27,6 +27,30 @@ func run(t: Node) -> void:
 	t.check("joystick push becomes the move vector", PlayerInput.get_move_vector() == Vector2(1, 0))
 	PlayerInput.touch_set_move(Vector2.ZERO)
 
+	# Aiming with the Cleave button. A mite stands straight above the hero.
+	var mite: Node2D = Node2D.new()
+	mite.position = Vector2(0, -20)
+	add_child(mite)
+	mite.add_to_group("enemies")
+	PlayerInput.locked_target = null
+	PlayerInput.touch_set_aim(Vector2(-1, 0))
+	var aimed: Vector2 = PlayerInput.get_aim_direction(Vector2.ZERO)
+	t.check("dragging the Cleave button left aims left, not at a mite 90 deg away",
+			aimed.is_equal_approx(Vector2(-1, 0)))
+	PlayerInput.touch_set_aim(Vector2(0.3, -1).normalized())
+	aimed = PlayerInput.get_aim_direction(Vector2.ZERO)
+	t.check("dragging roughly toward a mite gets pulled onto it (lighter assist)",
+			PlayerInput.locked_target == mite
+			and absf(aimed.angle_to(Vector2.UP)) < absf(Vector2(0.3, -1).normalized().angle_to(Vector2.UP)))
+	PlayerInput.touch_set_aim(Vector2.ZERO)
+	PlayerInput.locked_target = null
+	aimed = PlayerInput.get_aim_direction(Vector2.ZERO)
+	t.check("without dragging, wide touch assist picks the mite to the side",
+			PlayerInput.locked_target == mite and aimed.is_equal_approx(Vector2.UP))
+	mite.remove_from_group("enemies")
+	mite.queue_free()
+	PlayerInput.locked_target = null
+
 	var click: InputEventMouseButton = InputEventMouseButton.new()
 	click.device = 0
 	click.button_index = MOUSE_BUTTON_LEFT

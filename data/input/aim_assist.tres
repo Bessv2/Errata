@@ -30,8 +30,18 @@ snap_strength = 1.0
 lock_stickiness = 0.5
 distance_weight = 0.6
 
+[sub_resource type="Resource" id="Profile_touch_aiming"]
+script = ExtResource("2_prof")
+enabled = true
+radius = 70.0
+cone_degrees = 60.0
+snap_strength = 0.6
+lock_stickiness = 0.4
+distance_weight = 0.3
+
 [resource]
 script = ExtResource("1_cfg")
 keyboard_mouse = SubResource("Profile_mouse")
 gamepad = SubResource("Profile_gamepad")
 touch = SubResource("Profile_touch")
+touch_aiming = SubResource("Profile_touch_aiming")

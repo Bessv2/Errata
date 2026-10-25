@@ -16,3 +16,7 @@ extends Resource
 @export var button_radius: float = 32.0
 ## Gap between the button's edge and the bottom-right corner of the screen (pixels).
 @export var button_margin: float = 22.0
+## Dragging this far from the button's centre aims fully in that direction (pixels).
+@export var aim_drag_radius: float = 32.0
+## Drags shorter than this share of aim_drag_radius don't aim (aim assist picks instead).
+@export_range(0.0, 0.9) var aim_deadzone: float = 0.3

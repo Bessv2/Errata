@@ -26,6 +26,7 @@ var _last_move: Vector2 = Vector2.RIGHT
 # What the on-screen touch controls are reporting (set via the touch_* functions).
 var _touch_move: Vector2 = Vector2.ZERO
 var _touch_cleave: bool = false
+var _touch_aim: Vector2 = Vector2.ZERO
 
 
 # --- Device detection --------------------------------------------------------
@@ -93,6 +94,11 @@ func touch_set_cleave(held: bool) -> void:
 	_touch_cleave = held
 
 
+## The direction a skill button is being dragged to aim (zero = not aiming).
+func touch_set_aim(direction: Vector2) -> void:
+	_touch_aim = direction
+
+
 ## Which way the player is aiming, as a unit vector, for a character standing at
 ## [param origin] (world position). Includes aim assist for the active device,
 ## and updates locked_target. Call once per physics frame.
@@ -104,7 +110,7 @@ func get_aim_direction(origin: Vector2) -> Vector2:
 	return AimAssist.bend_toward(origin, raw, locked_target, profile)
 
 
-# The aim before assist: cursor, right stick, or walking direction.
+# The aim before assist: cursor, right stick, dragged skill button, or walking direction.
 func _raw_aim(origin: Vector2) -> Vector2:
 	var aim: Vector2 = Vector2.ZERO
 	match active_device:
@@ -115,8 +121,8 @@ func _raw_aim(origin: Vector2) -> Vector2:
 			if aim == Vector2.ZERO:
 				aim = _last_move
 		Device.TOUCH:
-			# Touch has no aim stick; you attack the way you walk, and aim assist does the rest.
-			aim = _last_move
+			# Dragging a skill button aims; otherwise you attack the way you walk.
+			aim = _touch_aim if _touch_aim != Vector2.ZERO else _last_move
 	if aim.length() > 0.001:
 		_last_aim = aim.normalized()
 	return _last_aim
@@ -129,7 +135,7 @@ func _assist_profile() -> AimAssistProfile:
 		Device.GAMEPAD:
 			return AIM_ASSIST.gamepad
 		Device.TOUCH:
-			return AIM_ASSIST.touch
+			return AIM_ASSIST.touch_aiming if _touch_aim != Vector2.ZERO else AIM_ASSIST.touch
 		_:
 			return AIM_ASSIST.keyboard_mouse
 

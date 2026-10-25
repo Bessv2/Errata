@@ -16,6 +16,9 @@ var _button_finger: int = -1
 # Where the joystick finger landed, and how far it has dragged from there.
 var _joy_anchor: Vector2 = Vector2.ZERO
 var _joy_offset: Vector2 = Vector2.ZERO
+# Same for the Cleave button: dragging away from where the finger landed aims.
+var _button_anchor: Vector2 = Vector2.ZERO
+var _button_offset: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -42,13 +45,18 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventScreenDrag and event.index == _joy_finger:
 		_joy_offset = (event.position - _joy_anchor).limit_length(CONFIG.joystick_radius)
 		_report_joystick()
+	elif event is InputEventScreenDrag and event.index == _button_finger:
+		_button_offset = (event.position - _button_anchor).limit_length(CONFIG.aim_drag_radius)
+		_report_aim()
 
 
 func _on_finger_down(finger: int, at: Vector2) -> void:
 	if _button_finger == -1 and at.distance_to(_button_centre()) <= CONFIG.button_radius * 1.25:
 		_button_finger = finger
+		_button_anchor = at
+		_button_offset = Vector2.ZERO
 		PlayerInput.touch_set_cleave(true)
-		queue_redraw()
+		_report_aim()
 	elif _joy_finger == -1 and at.x < size.x * CONFIG.joystick_zone:
 		_joy_finger = finger
 		_joy_anchor = at
@@ -72,7 +80,17 @@ func _release_joystick() -> void:
 
 func _release_button() -> void:
 	_button_finger = -1
+	_button_offset = Vector2.ZERO
 	PlayerInput.touch_set_cleave(false)
+	PlayerInput.touch_set_aim(Vector2.ZERO)
+	queue_redraw()
+
+
+# Turns a drag on the Cleave button into an aim direction. Short drags don't aim,
+# so a plain tap or hold still lets aim assist pick the target.
+func _report_aim() -> void:
+	var push: Vector2 = _button_offset / CONFIG.aim_drag_radius
+	PlayerInput.touch_set_aim(push.normalized() if push.length() >= CONFIG.aim_deadzone else Vector2.ZERO)
 	queue_redraw()
 
 
@@ -118,5 +136,13 @@ func _draw_button() -> void:
 	var r: float = CONFIG.button_radius * (0.92 if held else 1.0)
 	draw_circle(centre, r, Color(BRUISE, 0.75 if held else 0.45))
 	draw_arc(centre, r, 0.0, TAU, 40, Color(BONE, 0.95 if held else 0.6), 2.0 if held else 1.0)
-	# Cleave glyph: a crescent sweep, like the swing on the floor.
-	draw_arc(centre + Vector2(-3, 3), r * 0.5, -PI * 0.95, -PI * 0.05, 16, Color(BONE, 0.95 if held else 0.7), 3.0)
+	var aiming: bool = held and _button_offset.length() >= CONFIG.aim_drag_radius * CONFIG.aim_deadzone
+	if aiming:
+		# Aim knob: shows the dragged direction, clamped to the button's rim.
+		var dir: Vector2 = _button_offset.normalized()
+		var knob: Vector2 = centre + dir * minf(_button_offset.length(), r)
+		draw_line(centre, knob, Color(BONE, 0.6), 2.0)
+		draw_circle(knob, KNOB_RADIUS * 0.8, Color(BONE, 0.95))
+	else:
+		# Cleave glyph: a crescent sweep, like the swing on the floor.
+		draw_arc(centre + Vector2(-3, 3), r * 0.5, -PI * 0.95, -PI * 0.05, 16, Color(BONE, 0.95 if held else 0.7), 3.0)

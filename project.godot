@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Errata"
-config/version="0.1.2-debug"
+config/version="0.1.3-debug"
 run/main_scene="res://scenes/world/arena.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
