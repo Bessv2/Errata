@@ -30,6 +30,11 @@ func run(t: Node) -> void:
 	t.check("aim assist has a profile for every device",
 			assist.keyboard_mouse != null and assist.gamepad != null and assist.touch != null)
 
+	for platform in ["pc", "web", "mobile"]:
+		var caps: PlatformCaps = load("res://data/platform/caps_%s.tres" % platform)
+		t.check("%s caps allow at least one full Void Mite group" % platform,
+				caps != null and caps.max_enemies_alive >= mite.group_size_max)
+
 	var bank: SoundBank = load("res://data/audio/sfx_bank.tres")
 	var silent: Array[String] = []
 	for sound in bank.entries:

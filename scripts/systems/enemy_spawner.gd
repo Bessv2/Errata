@@ -17,6 +17,7 @@ extends Node
 
 var _alive: int = 0
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
+var _caps: PlatformCaps = PlatformCaps.current()
 
 
 func _ready() -> void:
@@ -31,6 +32,8 @@ func _spawn_group() -> void:
 	var hero: Node2D = get_tree().get_first_node_in_group("hero")
 	var centre: Vector2 = _pick_group_centre(hero)
 	var count: int = _rng.randi_range(monster_data.group_size_min, monster_data.group_size_max)
+	# Never exceed this platform's monster cap (data/platform/caps_*.tres).
+	count = mini(count, _caps.max_enemies_alive - _alive)
 	for i in count:
 		var monster: Node2D = monster_scene.instantiate()
 		var offset: Vector2 = Vector2.from_angle(_rng.randf() * TAU) * _rng.randf() * config.group_radius

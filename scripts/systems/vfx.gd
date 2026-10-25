@@ -30,8 +30,15 @@ func _on_character_died(who: Node2D) -> void:
 		_spawn(monster_death_fx, who.global_position + BODY_OFFSET, Vector2.RIGHT)
 
 
+## This platform's particle limits (data/platform/caps_*.tres).
+var _caps: PlatformCaps = PlatformCaps.current()
+
+
 func _spawn(scene: PackedScene, at: Vector2, direction: Vector2) -> void:
+	if get_child_count() >= _caps.max_particle_bursts:
+		return
 	var fx: CPUParticles2D = scene.instantiate()
 	fx.global_position = at
 	fx.direction = direction
+	fx.amount = maxi(1, roundi(fx.amount * _caps.particle_scale))
 	add_child(fx)
