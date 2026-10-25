@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HeroStats" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/types/hero_stats.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+move_speed = 90.0
+acceleration = 900.0
+deceleration = 1200.0

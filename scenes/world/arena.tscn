@@ -1,6 +1,7 @@
 [gd_scene format=4]
 
 [ext_resource type="TileSet" path="res://scenes/world/arena_tiles.tres" id="1_pbd5s"]
+[ext_resource type="PackedScene" path="res://scenes/player/hero.tscn" id="2_ldtp4"]
 
 [node name="Arena" type="Node2D" unique_id=2067695611]
 
@@ -18,6 +19,10 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAAEAFQAAAAAAAAABAAAAFAAAAAAAAAAAAAIAFQAAAAAAAAACAAAAFAAAAAAAAAAAAAMAFQAAAAAAAAADAAAAFAAAAAAAAAAAAAQAFQAAAAAAAAAEAAAAFAAAAAAAAAAAAAUAFQAAAAAAAAAFAAAAFAAAAAAAAAAAAAYAFQAAAAAAAAAGAAAAFAAAAAAAAAAAAAcAFQAAAAAAAAAHAAAAFAAAAAAAAAAAAAgAFQAAAAAAAAAIAAAAFAAAAAAAAAAAAAkAFQAAAAAAAAAJAAAAFAAAAAAAAAAAAAoAFQAAAAAAAAAKAAAAFAAAAAAAAAAAAAsAFQAAAAAAAAALAAAAFAAAAAAAAAAAAAwAFQAAAAAAAAAMAAAAFAAAAAAAAAAAAA0AFQAAAAAAAAANAAAAFAAAAAAAAAAAAAAAHgAAAAAAAAA=")
 tile_set = ExtResource("1_pbd5s")
 
+[node name="Hero" type="CharacterBody2D" parent="Entities" unique_id=1511143480 instance=ExtResource("2_ldtp4")]
+position = Vector2(32, 224)
+motion_mode = 1
+
 [node name="Bounds" type="StaticBody2D" parent="." unique_id=485141755]
 
 [node name="Edge" type="CollisionPolygon2D" parent="Bounds" unique_id=1729830032]
@@ -25,7 +30,4 @@ build_mode = 1
 polygon = PackedVector2Array(32, 0, 480, 224, 32, 448, -416, 224, 32, 0)
 
 [node name="HeroSpawn" type="Marker2D" parent="." unique_id=1958662881]
-position = Vector2(32, 224)
-
-[node name="Camera" type="Camera2D" parent="." unique_id=974221649]
 position = Vector2(32, 224)

@@ -15,6 +15,10 @@ run/main_scene="res://scenes/world/arena.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerInput="*res://scripts/input/player_input.gd"
+
 [display]
 
 window/size/viewport_width=640

@@ -9,6 +9,7 @@ Remove a row when its asset is replaced.
 | Name | Files | Creator | Source | Licence | Used for | Placeholder? |
 |---|---|---|---|---|---|---|
 | Isometric Miniature Dungeon | `assets/art/placeholder/kenney_dungeon/*.png` (scaled to 1/4 size) | Kenney (kenney.nl) | [kenney.nl](https://kenney.nl/assets/isometric-miniature-dungeon) | CC0 1.0 | Arena floor, back walls | Yes |
+| Isometric Miniature Dungeon (Male character) | `assets/art/placeholder/kenney_hero/*.png` (idle + run, 8 directions, scaled to 1/4 size) | Kenney (kenney.nl) | [kenney.nl](https://kenney.nl/assets/isometric-miniature-dungeon) | CC0 1.0 | Hero sprite | Yes |
 
 ## Audio
 
