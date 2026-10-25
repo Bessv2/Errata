@@ -4,7 +4,9 @@ extends Resource
 ## Slow out-of-combat health regen so the Milestone 1 playtest is about combat feel,
 ## not attrition. Real healing gets designed before Milestone 2.
 ## To remove: delete this file, data/playtest/temp_regen.tres,
-## scripts/systems/temp_regen_PLAYTEST.gd and the "TempRegen_PLAYTEST" node in the hero scene.
+## scripts/systems/temp_regen_PLAYTEST.gd and the "TempRegen_PLAYTEST" node in the hero scene;
+## then drop the "[temp regen]" checks in tests/test_health.gd and _life_with_temp_regen
+## in tools/sim/cleave_sim.gd.
 
 ## Master switch.
 @export var enabled: bool = true
