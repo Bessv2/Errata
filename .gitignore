@@ -3,3 +3,5 @@
 /android/
 # Raw asset packs Geordon drops in; only the files we use get copied to assets/
 _incoming/
+# Exported builds (web, APK); published separately
+build/
