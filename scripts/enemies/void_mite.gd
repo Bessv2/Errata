@@ -73,7 +73,15 @@ func _windup(delta: float) -> void:
 func _bite(direction: Vector2) -> void:
 	var target_health: Health = target.get_node("Health")
 	target_health.take_damage(data.bite_damage, self)
+	if target.has_method("apply_knockback"):
+		target.apply_knockback(direction * data.bite_knockback)
 	CombatEvents.hit_landed.emit(self, target, data.bite_damage, direction)
+
+
+## Shoves the mite away (e.g. from Cleave), reduced by its knockback resistance.
+## It skids to a stop at its own acceleration.
+func apply_knockback(push: Vector2) -> void:
+	velocity += push * (1.0 - data.knockback_resistance)
 
 
 # --- Helpers -----------------------------------------------------------------

@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="SoundBank" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/types/sound_entry.gd" id="1_lqwua"]
+[ext_resource type="AudioStream" path="res://assets/audio/placeholder/kenney_interface/confirmation_002.wav" id="2_vomee"]
+[ext_resource type="Script" path="res://scripts/systems/types/sound_bank.gd" id="3_q8b63"]
+
+[sub_resource type="Resource" id="Resource_0uuqu"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_wqq6n"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_4do16"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_ry6c8"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_dlaqp"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_yw0ou"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_6ynlg"]
+script = ExtResource("1_lqwua")
+
+[sub_resource type="Resource" id="Resource_1hvkj"]
+script = ExtResource("1_lqwua")
+volume_db = -10.0
+
+[sub_resource type="Resource" id="Resource_ulrne"]
+script = ExtResource("1_lqwua")
+streams = Array[AudioStream]([ExtResource("2_vomee")])
+volume_db = -6.0
+pitch_variance = 0.0
+
+[resource]
+script = ExtResource("3_q8b63")
+entries = Dictionary[StringName, ExtResource("1_lqwua")]({
+&"cleave_hit": SubResource("Resource_wqq6n"),
+&"cleave_swing": SubResource("Resource_0uuqu"),
+&"footstep": SubResource("Resource_1hvkj"),
+&"hero_death": SubResource("Resource_yw0ou"),
+&"hero_hurt": SubResource("Resource_dlaqp"),
+&"hero_respawn": SubResource("Resource_6ynlg"),
+&"mite_death": SubResource("Resource_ry6c8"),
+&"mite_telegraph": SubResource("Resource_4do16"),
+&"ui_confirm": SubResource("Resource_ulrne")
+})

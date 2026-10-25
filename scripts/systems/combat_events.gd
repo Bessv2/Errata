@@ -11,3 +11,5 @@ signal skill_used(user: Node2D, skill: StringName, direction: Vector2)
 signal attack_telegraphed(attacker: Node2D)
 ## A character's hit points reached zero.
 signal character_died(who: Node2D)
+## A dead character came back (the hero respawning).
+signal character_revived(who: Node2D)

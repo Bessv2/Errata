@@ -10,3 +10,5 @@ extends Resource
 @export var arc_degrees: float = 150.0
 ## Seconds between swings while the button is held.
 @export var cooldown: float = 0.4
+## Speed a hit monster is shoved away at, before its knockback resistance (pixels per second).
+@export var knockback: float = 160.0

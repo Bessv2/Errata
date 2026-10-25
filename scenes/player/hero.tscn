@@ -8,9 +8,19 @@
 [ext_resource type="Script" path="res://scripts/player/cleave.gd" id="6_cleave"]
 [ext_resource type="Resource" path="res://data/skills/cleave.tres" id="7_cleavedata"]
 [ext_resource type="Script" path="res://scripts/player/cleave_swing_visual.gd" id="8_swing"]
+[ext_resource type="Shader" path="res://scenes/fx/hit_flash.gdshader" id="9_flashshader"]
+[ext_resource type="Script" path="res://scripts/systems/hit_flash.gd" id="10_hitflash"]
+[ext_resource type="Script" path="res://scripts/systems/camera_shake.gd" id="11_shake"]
+[ext_resource type="Script" path="res://scripts/player/hero_audio.gd" id="12_audio"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32834"]
 radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flash"]
+resource_local_to_scene = true
+shader = ExtResource("9_flashshader")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_amount = 0.0
 
 [node name="Hero" type="CharacterBody2D" unique_id=1511143480]
 collision_layer = 2
@@ -34,6 +44,7 @@ script = ExtResource("8_swing")
 cleave = NodePath("../Cleave")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=146155250]
+material = SubResource("ShaderMaterial_flash")
 sprite_frames = ExtResource("2_hpob4")
 animation = &"idle_3"
 offset = Vector2(0, -48)
@@ -41,6 +52,17 @@ offset = Vector2(0, -48)
 [node name="Camera" type="Camera2D" parent="." unique_id=1993216075]
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+script = ExtResource("11_shake")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("5_health")
+
+[node name="HitFlash" type="Node" parent="." node_paths=PackedStringArray("target", "health")]
+script = ExtResource("10_hitflash")
+target = NodePath("../Sprite")
+health = NodePath("../Health")
+color = Color(0.75, 0.12, 0.12, 1)
+
+[node name="Audio" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("12_audio")
+sprite = NodePath("../Sprite")

@@ -28,5 +28,6 @@ func _open() -> void:
 
 
 func _on_respawn_nearby() -> void:
+	Sfx.play(&"ui_confirm")
 	_root.visible = false
 	respawn_service.respawn_nearby()

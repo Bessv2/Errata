@@ -8,3 +8,4 @@ damage = 10
 reach = 30.0
 arc_degrees = 150.0
 cooldown = 0.4
+knockback = 160.0

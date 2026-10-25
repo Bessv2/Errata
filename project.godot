@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 PlayerInput="*res://scripts/input/player_input.gd"
 CombatEvents="*res://scripts/systems/combat_events.gd"
+HitStop="*res://scripts/systems/hit_stop.gd"
+Sfx="*res://scripts/systems/sfx.gd"
 
 [display]
 

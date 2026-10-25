@@ -9,6 +9,8 @@ extends Resource
 @export var move_speed: float = 55.0
 ## How fast it reaches top speed, in pixels per second per second.
 @export var acceleration: float = 400.0
+## Share of incoming knockback ignored (0 = full knockback, 1 = immovable).
+@export var knockback_resistance: float = 0.0
 
 @export_group("Bite")
 ## Damage dealt to the hero by one bite.
@@ -21,6 +23,8 @@ extends Resource
 @export var bite_windup: float = 0.45
 ## Pause after a bite before it can chase or bite again (seconds).
 @export var bite_recovery: float = 0.6
+## Speed the hero is shoved away at when bitten (pixels per second).
+@export var bite_knockback: float = 70.0
 
 @export_group("Group")
 ## Fewest mites in one spawned group.

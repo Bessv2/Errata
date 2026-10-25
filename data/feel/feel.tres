@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FeelConfig" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/types/feel_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+hit_stop_cleave = 0.05
+hit_stop_hero_hurt = 0.08
+hit_stop_time_scale = 0.05
+shake_cleave_hit = 0.3
+shake_per_extra_hit = 0.05
+shake_hero_hurt = 0.5
+shake_monster_death = 0.15
+shake_hero_death = 0.7
+shake_max_offset = 6.0
+shake_decay = 2.5
+flash_time = 0.09

@@ -15,6 +15,7 @@ Remove a row when its asset is replaced.
 
 | Name | Files | Creator | Source | Licence | Used for | Placeholder? |
 |---|---|---|---|---|---|---|
+| Interface Sounds (`confirmation_002`) | `assets/audio/placeholder/kenney_interface/confirmation_002.wav` | Kenney (kenney.nl); Godot packaging by Calinou | [Godot Asset Library #794](https://godotengine.org/asset-library/asset/794) | CC0 1.0 | "Respawn nearby" button | Yes |
 
 ## Fonts
 

@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://scripts/systems/respawn_service.gd" id="7_respawn"]
 [ext_resource type="Resource" path="res://data/world/respawn.tres" id="8_respawncfg"]
 [ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="9_deathscreen"]
+[ext_resource type="Script" path="res://scripts/systems/vfx.gd" id="10_vfx"]
+[ext_resource type="PackedScene" path="res://scenes/fx/monster_hit.tscn" id="11_mhit"]
+[ext_resource type="PackedScene" path="res://scenes/fx/monster_death.tscn" id="12_mdeath"]
+[ext_resource type="PackedScene" path="res://scenes/fx/hero_hurt.tscn" id="13_hhurt"]
 
 [node name="Arena" type="Node2D" unique_id=2067695611]
 
@@ -54,3 +58,10 @@ floor_layer = NodePath("../Floor")
 
 [node name="DeathScreen" parent="." node_paths=PackedStringArray("respawn_service") instance=ExtResource("9_deathscreen")]
 respawn_service = NodePath("../RespawnService")
+
+[node name="Vfx" type="Node2D" parent="."]
+z_index = 2
+script = ExtResource("10_vfx")
+monster_hit_fx = ExtResource("11_mhit")
+monster_death_fx = ExtResource("12_mdeath")
+hero_hurt_fx = ExtResource("13_hhurt")

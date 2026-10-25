@@ -42,6 +42,12 @@ func _move(delta: float) -> void:
 	move_and_slide()
 
 
+## Shoves the hero (e.g. when bitten). Normal movement takes back control
+## at the hero's acceleration, so small shoves are brief.
+func apply_knockback(push: Vector2) -> void:
+	velocity += push
+
+
 # --- Aim ---------------------------------------------------------------------
 
 func _update_aim() -> void:
@@ -79,6 +85,7 @@ func revive(at: Vector2) -> void:
 	_sprite.modulate = Color.WHITE
 	_aim_indicator.visible = true
 	reset_physics_interpolation()
+	CombatEvents.character_revived.emit(self)
 
 
 # --- Animation ---------------------------------------------------------------

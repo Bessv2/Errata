@@ -27,6 +27,8 @@ func try_use(direction: Vector2) -> bool:
 	for target in hits:
 		var to_target: Vector2 = (target.global_position - global_position).normalized()
 		(target.get_node("Health") as Health).take_damage(data.damage, user)
+		if target.has_method("apply_knockback"):
+			target.apply_knockback(to_target * data.knockback)
 		CombatEvents.hit_landed.emit(user, target, data.damage, to_target)
 	CombatEvents.skill_used.emit(user, &"cleave", direction)
 	swung.emit(direction, hits)
