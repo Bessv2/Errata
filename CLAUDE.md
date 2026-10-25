@@ -89,6 +89,20 @@ tests/         # automated tests
 - Placeholders: CC0 only (e.g. Kenney). Log every asset and its license in `CREDITS.md`.
 - Never use art, names, or text from Diablo, Path of Exile, or any other game.
 
+### Approved asset sources
+You may pull assets from these sources without asking, as long as the rules below are met:
+- itch.io free game assets: https://itch.io/game-assets/free/tag-godot
+- The Godot Asset Library: https://godotengine.org/asset-library/asset
+
+Rules:
+- Art, audio and fonts licensed CC0: use freely.
+- CC-BY: allowed, but add the required credit to CREDITS.md.
+- Any other license (non-commercial, no-redistribution, custom, or no license stated): do not use. Ask first.
+- Log every asset in CREDITS.md: name, creator, source URL, license, and what it's used for.
+- Asset packs must only contain images, audio, fonts or Godot resources. If a download contains an .exe, installer or script you didn't expect, delete it and tell me.
+- Everything must match the art spec (isometric, one character resolution, one palette). Don't mix styles just because something is free.
+- Godot Asset Library plugins/addons are code, not assets: still ask before installing any of them, and explain what it does and why we need it.
+
 ## Workflow
 
 1. Before starting, restate the task in one or two sentences and name the files you expect to touch.

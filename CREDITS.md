@@ -1,20 +1,21 @@
 # Credits
 
-Every asset in `assets/` is listed here with its source and licence.
-Placeholders must be CC0. Remove a row when its asset is replaced.
+Every asset in `assets/` is listed here: name, creator, source URL, licence, and what it's used for.
+Licence rules are in CLAUDE.md ("Approved asset sources"). CC-BY assets must include the credit line the licence requires.
+Remove a row when its asset is replaced.
 
 ## Art
 
-| File(s) | Source | Author | Licence | Placeholder? |
-|---|---|---|---|---|
-| `assets/art/placeholder/kenney_dungeon/*.png` (floor, wall, column tiles, scaled to 1/4 size) | [Isometric Miniature Dungeon](https://kenney.nl/assets/isometric-miniature-dungeon) | Kenney (kenney.nl) | CC0 1.0 | Yes |
+| Name | Files | Creator | Source | Licence | Used for | Placeholder? |
+|---|---|---|---|---|---|---|
+| Isometric Miniature Dungeon | `assets/art/placeholder/kenney_dungeon/*.png` (scaled to 1/4 size) | Kenney (kenney.nl) | [kenney.nl](https://kenney.nl/assets/isometric-miniature-dungeon) | CC0 1.0 | Arena floor, back walls | Yes |
 
 ## Audio
 
-| File(s) | Source | Author | Licence | Placeholder? |
-|---|---|---|---|---|
+| Name | Files | Creator | Source | Licence | Used for | Placeholder? |
+|---|---|---|---|---|---|---|
 
 ## Fonts
 
-| File(s) | Source | Author | Licence | Placeholder? |
-|---|---|---|---|---|
+| Name | Files | Creator | Source | Licence | Used for | Placeholder? |
+|---|---|---|---|---|---|---|
