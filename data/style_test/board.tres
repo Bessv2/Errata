@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="StyleBoard" format=3]
 
-; Style-test board. Add PixelLab candidates as new StyleCandidate entries per slot.
-; Candidate art lives in assets/art/style_test/candidates/<slot>/ and is NOT used by the game.
+; Style-test board. Candidate art lives in assets/art/style_test/candidates/<slot>/
+; and is NOT used by the game until Geordon approves it.
+; PixelLab candidates come first in each slot; Kenney/code placeholders last.
 
 [ext_resource type="Script" path="res://scripts/style_test/style_board.gd" id="1_board"]
 [ext_resource type="Script" path="res://scripts/style_test/style_slot.gd" id="2_slot"]
@@ -10,6 +11,231 @@
 [ext_resource type="PackedScene" path="res://scenes/style_test/mite_placeholder.tscn" id="5_mite"]
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stone_S.png" id="6_stone"]
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_S.png" id="7_stonetile"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/south.png" id="ha_south"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/south-west.png" id="ha_south-west"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/west.png" id="ha_west"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/north-west.png" id="ha_north-west"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/north.png" id="ha_north"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/north-east.png" id="ha_north-east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/east.png" id="ha_east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_a/south-east.png" id="ha_south-east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/south.png" id="hb_south"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/south-west.png" id="hb_south-west"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/west.png" id="hb_west"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/north-west.png" id="hb_north-west"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/north.png" id="hb_north"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/north-east.png" id="hb_north-east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/east.png" id="hb_east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/south-east.png" id="hb_south-east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_1.png" id="mite_1"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_2.png" id="mite_2"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_3.png" id="mite_3"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_4.png" id="mite_4"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_5.png" id="mite_5"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_6.png" id="mite_6"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/rift_touched/rift_1.png" id="rift_1"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/rift_touched/rift_2.png" id="rift_2"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/rift_touched/rift_3.png" id="rift_3"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/rift_touched/rift_4.png" id="rift_4"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/rift_touched/rift_5.png" id="rift_5"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/anvil/anvil_1.png" id="anvil_1"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/anvil/anvil_2.png" id="anvil_2"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/anvil/anvil_3.png" id="anvil_3"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/anvil/anvil_4.png" id="anvil_4"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/anvil/anvil_5.png" id="anvil_5"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/ground/ground_1_flagstone.png" id="ground_1_flagstone"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/ground/ground_2_ash.png" id="ground_2_ash"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/ground/ground_3_void_crack.png" id="ground_3_void_crack"]
+
+[sub_resource type="SpriteFrames" id="Frames_hero_a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("ha_south")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_south-west")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_west")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_north-west")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_north")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_north-east")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_east")
+}, {
+"duration": 1.0,
+"texture": ExtResource("ha_south-east")
+}],
+"loop": true,
+"name": &"turntable",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="Frames_hero_b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("hb_south")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_south-west")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_west")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_north-west")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_north")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_north-east")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_east")
+}, {
+"duration": 1.0,
+"texture": ExtResource("hb_south-east")
+}],
+"loop": true,
+"name": &"turntable",
+"speed": 1.0
+}]
+
+[sub_resource type="Resource" id="Cand_hero_a"]
+script = ExtResource("3_cand")
+label = "PixelLab A: rusted plate, hammer"
+frames = SubResource("Frames_hero_a")
+feet_offset = 20.0
+
+[sub_resource type="Resource" id="Cand_hero_b"]
+script = ExtResource("3_cand")
+label = "PixelLab B: hooded, maul"
+frames = SubResource("Frames_hero_b")
+feet_offset = 22.0
+
+[sub_resource type="Resource" id="Cand_mite_1"]
+script = ExtResource("3_cand")
+label = "PixelLab 1: swollen purple tick"
+texture = ExtResource("mite_1")
+feet_offset = 17.0
+
+[sub_resource type="Resource" id="Cand_mite_2"]
+script = ExtResource("3_cand")
+label = "PixelLab 2: cracked violet carapace"
+texture = ExtResource("mite_2")
+feet_offset = 21.0
+
+[sub_resource type="Resource" id="Cand_mite_3"]
+script = ExtResource("3_cand")
+label = "PixelLab 3: bloated, pale eyes"
+texture = ExtResource("mite_3")
+feet_offset = 18.0
+
+[sub_resource type="Resource" id="Cand_mite_4"]
+script = ExtResource("3_cand")
+label = "PixelLab 4: rust shell, green belly"
+texture = ExtResource("mite_4")
+feet_offset = 18.0
+
+[sub_resource type="Resource" id="Cand_mite_5"]
+script = ExtResource("3_cand")
+label = "PixelLab 5: black with star specks"
+texture = ExtResource("mite_5")
+feet_offset = 14.0
+
+[sub_resource type="Resource" id="Cand_mite_6"]
+script = ExtResource("3_cand")
+label = "PixelLab 6: long proboscis"
+texture = ExtResource("mite_6")
+feet_offset = 17.0
+
+[sub_resource type="Resource" id="Cand_rift_1"]
+script = ExtResource("3_cand")
+label = "PixelLab 1: magenta/cyan glitch"
+texture = ExtResource("rift_1")
+feet_offset = 16.0
+
+[sub_resource type="Resource" id="Cand_rift_2"]
+script = ExtResource("3_cand")
+label = "PixelLab 2: candy pink cartoon"
+texture = ExtResource("rift_2")
+feet_offset = 16.0
+
+[sub_resource type="Resource" id="Cand_rift_3"]
+script = ExtResource("3_cand")
+label = "PixelLab 3: split RGB misprint"
+texture = ExtResource("rift_3")
+feet_offset = 16.0
+
+[sub_resource type="Resource" id="Cand_rift_4"]
+script = ExtResource("3_cand")
+label = "PixelLab 4: clashing polka dots"
+texture = ExtResource("rift_4")
+feet_offset = 17.0
+
+[sub_resource type="Resource" id="Cand_rift_5"]
+script = ExtResource("3_cand")
+label = "PixelLab 5: missing-texture check"
+texture = ExtResource("rift_5")
+feet_offset = 15.0
+
+[sub_resource type="Resource" id="Cand_anvil_1"]
+script = ExtResource("3_cand")
+label = "PixelLab 1: plain iron"
+texture = ExtResource("anvil_1")
+feet_offset = 16.0
+
+[sub_resource type="Resource" id="Cand_anvil_2"]
+script = ExtResource("3_cand")
+label = "PixelLab 2: violet rift glow"
+texture = ExtResource("anvil_2")
+feet_offset = 14.0
+
+[sub_resource type="Resource" id="Cand_anvil_3"]
+script = ExtResource("3_cand")
+label = "PixelLab 3: motion lines"
+texture = ExtResource("anvil_3")
+feet_offset = 18.0
+
+[sub_resource type="Resource" id="Cand_anvil_4"]
+script = ExtResource("3_cand")
+label = "PixelLab 4: sky tear above"
+texture = ExtResource("anvil_4")
+feet_offset = 16.0
+
+[sub_resource type="Resource" id="Cand_anvil_5"]
+script = ExtResource("3_cand")
+label = "PixelLab 5: dust puff"
+texture = ExtResource("anvil_5")
+feet_offset = 16.0
+
+[sub_resource type="Resource" id="Cand_ground_1"]
+script = ExtResource("3_cand")
+label = "PixelLab 1: flagstone, green moss"
+texture = ExtResource("ground_1_flagstone")
+ground_offset = 6.0
+
+[sub_resource type="Resource" id="Cand_ground_2"]
+script = ExtResource("3_cand")
+label = "PixelLab 2: ash, bone, rust rubble"
+texture = ExtResource("ground_2_ash")
+ground_offset = 6.0
+
+[sub_resource type="Resource" id="Cand_ground_3"]
+script = ExtResource("3_cand")
+label = "PixelLab 3: void crack"
+texture = ExtResource("ground_3_void_crack")
+ground_offset = 6.0
 
 [sub_resource type="Resource" id="Cand_hero"]
 script = ExtResource("3_cand")
@@ -26,46 +252,51 @@ scene = ExtResource("5_mite")
 script = ExtResource("3_cand")
 label = "placeholder (Kenney stone)"
 texture = ExtResource("6_stone")
+ground_offset = 43.0
+tint_as_floor = true
 
 [sub_resource type="Resource" id="Cand_ground_b"]
 script = ExtResource("3_cand")
 label = "placeholder (Kenney tiled)"
 texture = ExtResource("7_stonetile")
+ground_offset = 43.0
+tint_as_floor = true
 
 [sub_resource type="Resource" id="Slot_hero"]
 script = ExtResource("2_slot")
 title = "Hero"
 kind = "character"
-candidates = Array[ExtResource("3_cand")]([SubResource("Cand_hero")])
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_hero_a"), SubResource("Cand_hero_b"), SubResource("Cand_hero")])
 
 [sub_resource type="Resource" id="Slot_mite"]
 script = ExtResource("2_slot")
 title = "Void Mite"
 kind = "character"
-candidates = Array[ExtResource("3_cand")]([SubResource("Cand_mite")])
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_mite_1"), SubResource("Cand_mite_2"), SubResource("Cand_mite_3"), SubResource("Cand_mite_4"), SubResource("Cand_mite_5"), SubResource("Cand_mite_6"), SubResource("Cand_mite")])
 
 [sub_resource type="Resource" id="Slot_rift"]
 script = ExtResource("2_slot")
 title = "Rift-touched"
 kind = "character"
-candidates = Array[ExtResource("3_cand")]([])
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_rift_1"), SubResource("Cand_rift_2"), SubResource("Cand_rift_3"), SubResource("Cand_rift_4"), SubResource("Cand_rift_5")])
 
 [sub_resource type="Resource" id="Slot_anvil"]
 script = ExtResource("2_slot")
 title = "Inevitable Anvil"
 kind = "drop"
-candidates = Array[ExtResource("3_cand")]([])
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_anvil_1"), SubResource("Cand_anvil_2"), SubResource("Cand_anvil_3"), SubResource("Cand_anvil_4"), SubResource("Cand_anvil_5")])
 
 [sub_resource type="Resource" id="Slot_ground"]
 script = ExtResource("2_slot")
 title = "Ground tiles"
 kind = "ground"
-candidates = Array[ExtResource("3_cand")]([SubResource("Cand_ground_a"), SubResource("Cand_ground_b")])
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_ground_1"), SubResource("Cand_ground_2"), SubResource("Cand_ground_3"), SubResource("Cand_ground_a"), SubResource("Cand_ground_b")])
 
 [resource]
 script = ExtResource("1_board")
 slots = Array[ExtResource("2_slot")]([SubResource("Slot_hero"), SubResource("Slot_mite"), SubResource("Slot_rift"), SubResource("Slot_anvil"), SubResource("Slot_ground")])
 floor_tile = ExtResource("6_stone")
+floor_offset = 43.0
 floor_tint = Color(0.5, 0.5, 0.6, 1)
 palette = PackedColorArray(0.05, 0.04, 0.07, 1, 0.17, 0.13, 0.22, 1, 0.29, 0.23, 0.36, 1, 0.36, 0.37, 0.42, 1, 0.85, 0.82, 0.72, 1, 0.54, 0.29, 0.18, 1, 0.5, 0.56, 0.29, 1, 0.88, 0.25, 0.98, 1)
 palette_names = PackedStringArray("void", "deep bruise", "bruised purple", "cold grey", "bone", "rust", "sickly green", "rift pop")

@@ -42,17 +42,24 @@ func _build_slot(i: int) -> void:
 	var candidate: StyleCandidate = null
 	if not slot.candidates.is_empty():
 		candidate = slot.candidates[_chosen[i]]
-	# Floor patch: the candidate tile itself for the ground slot, else the current floor.
+	# Floor patch: whichever ground candidate is currently showing.
+	var floor_choice: StyleCandidate = _ground_choice()
 	var floor_tex: Texture2D = BOARD.floor_tile
-	if slot.kind == "ground" and candidate != null:
-		floor_tex = candidate.texture
+	var floor_offset: float = BOARD.floor_offset
+	var floor_tinted: bool = true
+	if floor_choice != null:
+		floor_tex = floor_choice.texture
+		floor_offset = floor_choice.ground_offset
+		floor_tinted = floor_choice.tint_as_floor
 	if floor_tex != null:
-		# A 2x2 diamond of tiles, centred on the slot, tinted like the arena floor.
+		# A 2x2 diamond of tiles, centred on the slot. Back tiles first so front ones overlap.
 		for cell in [Vector2(-0.5, -0.5), Vector2(0.5, -0.5), Vector2(-0.5, 0.5), Vector2(0.5, 0.5)]:
 			var tile: Sprite2D = Sprite2D.new()
 			tile.texture = floor_tex
-			tile.modulate = BOARD.floor_tint
-			tile.position = Vector2((cell.x - cell.y) * TILE.x / 2.0, (cell.x + cell.y) * TILE.y / 2.0) + Vector2(0, -43)
+			# Kenney placeholders are tinted like the arena floor; real candidates show as drawn.
+			if floor_tinted:
+				tile.modulate = BOARD.floor_tint
+			tile.position = Vector2((cell.x - cell.y) * TILE.x / 2.0, (cell.x + cell.y) * TILE.y / 2.0) + Vector2(0, -floor_offset)
 			root.add_child(tile)
 	if candidate != null and slot.kind != "ground":
 		var art: Node2D = _make_art(candidate)
@@ -63,6 +70,15 @@ func _build_slot(i: int) -> void:
 	if slot.candidates.size() > 1:
 		caption += "  (%d/%d)" % [_chosen[i] + 1, slot.candidates.size()]
 	_add_label(root, caption, Vector2(0, 34), 8, Color(BONE, 0.7))
+
+
+# The ground candidate currently showing in the ground slot (null if none).
+func _ground_choice() -> StyleCandidate:
+	for i in BOARD.slots.size():
+		var slot: StyleSlot = BOARD.slots[i]
+		if slot.kind == "ground" and not slot.candidates.is_empty():
+			return slot.candidates[_chosen[i]]
+	return null
 
 
 # Makes the node that shows one candidate, feet on the slot's origin.
@@ -120,7 +136,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		var count: int = BOARD.slots[_selected].candidates.size()
 		if count > 1:
 			_chosen[_selected] = wrapi(_chosen[_selected] + (1 if key == KEY_RIGHT else -1), 0, count)
-			_build_slot(_selected)
+			if BOARD.slots[_selected].kind == "ground":
+				# The floor under every slot follows the ground choice.
+				for i in BOARD.slots.size():
+					_build_slot(i)
+			else:
+				_build_slot(_selected)
 
 
 # --- Palette strip -------------------------------------------------------------
