@@ -23,9 +23,18 @@ var locked_target: Node2D = null
 var _last_aim: Vector2 = Vector2.RIGHT
 # Last non-zero movement, used as aim on gamepad when the right stick is idle.
 var _last_move: Vector2 = Vector2.RIGHT
+# What the on-screen touch controls are reporting (set via the touch_* functions).
+var _touch_move: Vector2 = Vector2.ZERO
+var _touch_cleave: bool = false
 
 
 # --- Device detection --------------------------------------------------------
+
+func _ready() -> void:
+	# Phones and tablets start in touch mode so the on-screen controls show at once.
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		active_device = Device.TOUCH
+
 
 func _input(event: InputEvent) -> void:
 	var device: Device = active_device
@@ -52,6 +61,8 @@ func _input(event: InputEvent) -> void:
 ## Where the player wants to move, as a vector up to length 1 (screen directions).
 func get_move_vector() -> Vector2:
 	var move: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if active_device == Device.TOUCH:
+		move = _touch_move
 	if move != Vector2.ZERO:
 		_last_move = move.normalized()
 	return move
@@ -59,7 +70,22 @@ func get_move_vector() -> Vector2:
 
 ## True while the player is asking for Cleave (held = keep swinging).
 func wants_cleave() -> bool:
+	if active_device == Device.TOUCH:
+		# Phones also fake a left-click on every touch; only the Cleave button counts.
+		return _touch_cleave
 	return Input.is_action_pressed("cleave")
+
+
+# --- Touch controls report here ----------------------------------------------
+
+## The virtual joystick's current push (length 0-1). Zero when released.
+func touch_set_move(vector: Vector2) -> void:
+	_touch_move = vector
+
+
+## Whether the on-screen Cleave button is held.
+func touch_set_cleave(held: bool) -> void:
+	_touch_cleave = held
 
 
 ## Which way the player is aiming, as a unit vector, for a character standing at

@@ -10,6 +10,7 @@
 [ext_resource type="Resource" path="res://data/world/respawn.tres" id="8_respawncfg"]
 [ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="9_deathscreen"]
 [ext_resource type="Script" path="res://scripts/systems/vfx.gd" id="10_vfx"]
+[ext_resource type="PackedScene" path="res://scenes/ui/touch_controls.tscn" id="14_touch"]
 [ext_resource type="PackedScene" path="res://scenes/fx/monster_hit.tscn" id="11_mhit"]
 [ext_resource type="PackedScene" path="res://scenes/fx/monster_death.tscn" id="12_mdeath"]
 [ext_resource type="PackedScene" path="res://scenes/fx/hero_hurt.tscn" id="13_hhurt"]
@@ -65,3 +66,5 @@ script = ExtResource("10_vfx")
 monster_hit_fx = ExtResource("11_mhit")
 monster_death_fx = ExtResource("12_mdeath")
 hero_hurt_fx = ExtResource("13_hhurt")
+
+[node name="TouchControls" parent="." instance=ExtResource("14_touch")]
