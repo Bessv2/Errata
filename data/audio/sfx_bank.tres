@@ -5,8 +5,7 @@
 [ext_resource type="AudioStream" path="res://assets/audio/placeholder/kenney_interface/confirmation_002.wav" id="2_vomee"]
 [ext_resource type="Script" path="res://scripts/systems/types/sound_bank.gd" id="3_q8b63"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/cleave_hit_2.wav" id="3_vuruy"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/cleave_swing_1.wav" id="4_d41ug"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/cleave_swing_2.wav" id="5_axwra"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/free_weapon_sounds/cleave_swing.wav" id="4_d41ug"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/footstep_1.wav" id="6_0aopw"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/footstep_2.wav" id="7_apbxw"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/footstep_3.wav" id="8_m8tm3"]
@@ -25,9 +24,9 @@ volume_db = -2.0
 
 [sub_resource type="Resource" id="Resource_0uuqu"]
 script = ExtResource("1_lqwua")
-streams = Array[AudioStream]([ExtResource("4_d41ug"), ExtResource("5_axwra")])
-volume_db = 12.0
-pitch_variance = 0.1
+streams = Array[AudioStream]([ExtResource("4_d41ug")])
+volume_db = -4.0
+pitch_variance = 0.12
 
 [sub_resource type="Resource" id="Resource_1hvkj"]
 script = ExtResource("1_lqwua")
