@@ -11,8 +11,13 @@ signal device_changed(device: Device)
 
 ## Stick input below this length counts as "not touched".
 const STICK_DEADZONE: float = 0.2
+## Aim assist tunables, one profile per device.
+const AIM_ASSIST: AimAssistConfig = preload("res://data/input/aim_assist.tres")
 
 var active_device: Device = Device.KEYBOARD_MOUSE
+
+## The monster aim assist is currently locked onto (null if none). Read-only for others.
+var locked_target: Node2D = null
 
 # Last non-zero aim, so a released stick keeps pointing the same way.
 var _last_aim: Vector2 = Vector2.RIGHT
@@ -58,8 +63,18 @@ func wants_cleave() -> bool:
 
 
 ## Which way the player is aiming, as a unit vector, for a character standing at
-## [param origin] (world position).
+## [param origin] (world position). Includes aim assist for the active device,
+## and updates locked_target. Call once per physics frame.
 func get_aim_direction(origin: Vector2) -> Vector2:
+	var raw: Vector2 = _raw_aim(origin)
+	var profile: AimAssistProfile = _assist_profile()
+	locked_target = AimAssist.pick_target(origin, raw, get_tree().get_nodes_in_group("enemies"),
+			profile, locked_target if is_instance_valid(locked_target) else null)
+	return AimAssist.bend_toward(origin, raw, locked_target, profile)
+
+
+# The aim before assist: cursor, right stick, or walking direction.
+func _raw_aim(origin: Vector2) -> Vector2:
 	var aim: Vector2 = Vector2.ZERO
 	match active_device:
 		Device.KEYBOARD_MOUSE:
@@ -69,7 +84,7 @@ func get_aim_direction(origin: Vector2) -> Vector2:
 			if aim == Vector2.ZERO:
 				aim = _last_move
 		Device.TOUCH:
-			# Touch has no aim stick; you attack the way you walk (aim assist arrives in step 7).
+			# Touch has no aim stick; you attack the way you walk, and aim assist does the rest.
 			aim = _last_move
 	if aim.length() > 0.001:
 		_last_aim = aim.normalized()
@@ -77,6 +92,16 @@ func get_aim_direction(origin: Vector2) -> Vector2:
 
 
 # --- Helpers -----------------------------------------------------------------
+
+func _assist_profile() -> AimAssistProfile:
+	match active_device:
+		Device.GAMEPAD:
+			return AIM_ASSIST.gamepad
+		Device.TOUCH:
+			return AIM_ASSIST.touch
+		_:
+			return AIM_ASSIST.keyboard_mouse
+
 
 # The mouse position converted from screen pixels to world coordinates.
 func _mouse_world_position() -> Vector2:

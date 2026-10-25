@@ -36,7 +36,7 @@ func _draw() -> void:
 	color.a = 1.0 - _age / LIFETIME
 	var reach: float = cleave.data.reach
 	var half_arc: float = deg_to_rad(cleave.data.arc_degrees) / 2.0
-	var aim_angle: float = Cleave.to_ground(_direction).angle()
+	var aim_angle: float = Iso.to_ground(_direction).angle()
 	var outer: PackedVector2Array = PackedVector2Array()
 	var steps: int = 12
 	for i in steps + 1:

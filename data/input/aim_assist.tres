@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="AimAssistConfig" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/types/aim_assist_config.gd" id="1_cfg"]
+[ext_resource type="Script" path="res://scripts/systems/types/aim_assist_profile.gd" id="2_prof"]
+
+[sub_resource type="Resource" id="Profile_mouse"]
+script = ExtResource("2_prof")
+enabled = false
+radius = 40.0
+cone_degrees = 20.0
+snap_strength = 0.3
+lock_stickiness = 0.0
+distance_weight = 0.4
+
+[sub_resource type="Resource" id="Profile_gamepad"]
+script = ExtResource("2_prof")
+enabled = true
+radius = 70.0
+cone_degrees = 70.0
+snap_strength = 0.8
+lock_stickiness = 0.4
+distance_weight = 0.4
+
+[sub_resource type="Resource" id="Profile_touch"]
+script = ExtResource("2_prof")
+enabled = true
+radius = 70.0
+cone_degrees = 200.0
+snap_strength = 1.0
+lock_stickiness = 0.5
+distance_weight = 0.6
+
+[resource]
+script = ExtResource("1_cfg")
+keyboard_mouse = SubResource("Profile_mouse")
+gamepad = SubResource("Profile_gamepad")
+touch = SubResource("Profile_touch")

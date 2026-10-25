@@ -39,20 +39,15 @@ func try_use(direction: Vector2) -> bool:
 ## where screen height counts double, so the arc covers a true half-circle of floor.
 static func targets_in_arc(origin: Vector2, direction: Vector2, candidates: Array[Node],
 		reach: float, arc_degrees: float) -> Array[Node2D]:
-	var aim_ground: Vector2 = to_ground(direction).normalized()
+	var aim_ground: Vector2 = Iso.to_ground(direction).normalized()
 	var half_arc: float = deg_to_rad(arc_degrees) / 2.0
 	var result: Array[Node2D] = []
 	for node in candidates:
 		var target: Node2D = node as Node2D
-		var offset: Vector2 = to_ground(target.global_position - origin)
+		var offset: Vector2 = Iso.to_ground(target.global_position - origin)
 		if offset.length() > reach:
 			continue
 		# Something standing right on top of the hero always counts.
 		if offset.length() < 0.001 or absf(aim_ground.angle_to(offset)) <= half_arc:
 			result.append(target)
 	return result
-
-
-## Converts a screen offset to ground distance (isometric floors are drawn half height).
-static func to_ground(screen_offset: Vector2) -> Vector2:
-	return Vector2(screen_offset.x, screen_offset.y * 2.0)

@@ -32,6 +32,7 @@ stats = ExtResource("4_stats")
 shape = SubResource("CircleShape2D_32834")
 
 [node name="AimIndicator" type="Node2D" parent="." unique_id=1595284587]
+z_index = 1
 script = ExtResource("1_le7pp")
 
 [node name="Cleave" type="Node2D" parent="."]

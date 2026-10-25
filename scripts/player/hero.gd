@@ -53,6 +53,7 @@ func apply_knockback(push: Vector2) -> void:
 func _update_aim() -> void:
 	aim_direction = PlayerInput.get_aim_direction(global_position)
 	_aim_indicator.rotation = aim_direction.angle()
+	_aim_indicator.locked_target = PlayerInput.locked_target
 
 
 # --- Death -------------------------------------------------------------------
