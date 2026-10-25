@@ -40,9 +40,14 @@ func _input(event: InputEvent) -> void:
 	var device: Device = active_device
 	if event is InputEventKey:
 		device = Device.KEYBOARD_MOUSE
-	elif event is InputEventMouseButton or event is InputEventMouseMotion:
+	elif event is InputEventMouseButton:
 		# Phones also send fake mouse events for touches; ignore those.
 		if event.device != InputEvent.DEVICE_ID_EMULATION:
+			device = Device.KEYBOARD_MOUSE
+	elif event is InputEventMouseMotion:
+		# In the web build, browsers report finger drags as mouse movement too,
+		# so movement alone never leaves touch mode; a click or key press does.
+		if event.device != InputEvent.DEVICE_ID_EMULATION and active_device != Device.TOUCH:
 			device = Device.KEYBOARD_MOUSE
 	elif event is InputEventJoypadButton:
 		device = Device.GAMEPAD
