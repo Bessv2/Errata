@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="StyleBoard" format=3]
+
+; Style-test board. Add PixelLab candidates as new StyleCandidate entries per slot.
+; Candidate art lives in assets/art/style_test/candidates/<slot>/ and is NOT used by the game.
+
+[ext_resource type="Script" path="res://scripts/style_test/style_board.gd" id="1_board"]
+[ext_resource type="Script" path="res://scripts/style_test/style_slot.gd" id="2_slot"]
+[ext_resource type="Script" path="res://scripts/style_test/style_candidate.gd" id="3_cand"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_hero/Male_3_Idle0.png" id="4_hero"]
+[ext_resource type="PackedScene" path="res://scenes/style_test/mite_placeholder.tscn" id="5_mite"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stone_S.png" id="6_stone"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_S.png" id="7_stonetile"]
+
+[sub_resource type="Resource" id="Cand_hero"]
+script = ExtResource("3_cand")
+label = "placeholder (Kenney)"
+texture = ExtResource("4_hero")
+feet_offset = 48.0
+
+[sub_resource type="Resource" id="Cand_mite"]
+script = ExtResource("3_cand")
+label = "placeholder (code-drawn)"
+scene = ExtResource("5_mite")
+
+[sub_resource type="Resource" id="Cand_ground_a"]
+script = ExtResource("3_cand")
+label = "placeholder (Kenney stone)"
+texture = ExtResource("6_stone")
+
+[sub_resource type="Resource" id="Cand_ground_b"]
+script = ExtResource("3_cand")
+label = "placeholder (Kenney tiled)"
+texture = ExtResource("7_stonetile")
+
+[sub_resource type="Resource" id="Slot_hero"]
+script = ExtResource("2_slot")
+title = "Hero"
+kind = "character"
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_hero")])
+
+[sub_resource type="Resource" id="Slot_mite"]
+script = ExtResource("2_slot")
+title = "Void Mite"
+kind = "character"
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_mite")])
+
+[sub_resource type="Resource" id="Slot_rift"]
+script = ExtResource("2_slot")
+title = "Rift-touched"
+kind = "character"
+candidates = Array[ExtResource("3_cand")]([])
+
+[sub_resource type="Resource" id="Slot_anvil"]
+script = ExtResource("2_slot")
+title = "Inevitable Anvil"
+kind = "drop"
+candidates = Array[ExtResource("3_cand")]([])
+
+[sub_resource type="Resource" id="Slot_ground"]
+script = ExtResource("2_slot")
+title = "Ground tiles"
+kind = "ground"
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_ground_a"), SubResource("Cand_ground_b")])
+
+[resource]
+script = ExtResource("1_board")
+slots = Array[ExtResource("2_slot")]([SubResource("Slot_hero"), SubResource("Slot_mite"), SubResource("Slot_rift"), SubResource("Slot_anvil"), SubResource("Slot_ground")])
+floor_tile = ExtResource("6_stone")
+floor_tint = Color(0.5, 0.5, 0.6, 1)
+palette = PackedColorArray(0.05, 0.04, 0.07, 1, 0.17, 0.13, 0.22, 1, 0.29, 0.23, 0.36, 1, 0.36, 0.37, 0.42, 1, 0.85, 0.82, 0.72, 1, 0.54, 0.29, 0.18, 1, 0.5, 0.56, 0.29, 1, 0.88, 0.25, 0.98, 1)
+palette_names = PackedStringArray("void", "deep bruise", "bruised purple", "cold grey", "bone", "rust", "sickly green", "rift pop")
