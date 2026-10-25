@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TempRegenConfig" format=3]
+
+; TEMPORARY PLAYTEST PLACEHOLDER: out-of-combat regen. Remove before Milestone 2.
+
+[ext_resource type="Script" path="res://scripts/systems/types/temp_regen_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+delay_after_damage = 2.0
+hp_per_second = 12.0

@@ -22,6 +22,7 @@ PlayerInput="*res://scripts/input/player_input.gd"
 CombatEvents="*res://scripts/systems/combat_events.gd"
 HitStop="*res://scripts/systems/hit_stop.gd"
 InputDebug="*res://scripts/ui/input_debug_overlay.gd"
+RotatePrompt="*res://scripts/ui/rotate_prompt.gd"
 Sfx="*res://scripts/systems/sfx.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 

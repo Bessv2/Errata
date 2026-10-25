@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/systems/hit_flash.gd" id="10_hitflash"]
 [ext_resource type="Script" path="res://scripts/systems/camera_shake.gd" id="11_shake"]
 [ext_resource type="Script" path="res://scripts/player/hero_audio.gd" id="12_audio"]
+[ext_resource type="Script" path="res://scripts/systems/temp_regen_PLAYTEST.gd" id="13_regen"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32834"]
 radius = 6.0
@@ -67,3 +68,7 @@ color = Color(0.75, 0.12, 0.12, 1)
 [node name="Audio" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("12_audio")
 sprite = NodePath("../Sprite")
+
+[node name="TempRegen_PLAYTEST" type="Node" parent="." node_paths=PackedStringArray("health")]
+script = ExtResource("13_regen")
+health = NodePath("../Health")

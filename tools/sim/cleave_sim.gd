@@ -33,7 +33,34 @@ func _init() -> void:
 	_scenario("Good aim (each swing catches 60% of the pack)", 0.6, true)
 	_scenario("Sloppy aim (35% of the pack per swing)", 0.35, true)
 	_scenario("Not attacking (how fast a pack kills you)", 0.0, false)
+	_life_with_temp_regen(0.6, "good aim")
+	_life_with_temp_regen(0.35, "sloppy aim")
 	quit()
+
+
+## TEMPORARY playtest regen check: fight pack after pack with out-of-combat regen
+## between them, and count how many packs a life lasts (capped at 50).
+## Gap between packs = respawn delay + the new group walking in from its spawn distance.
+func _life_with_temp_regen(hit_chance: float, label: String) -> void:
+	var regen: TempRegenConfig = load("res://data/playtest/temp_regen.tres")
+	var spawns: SpawnConfig = load("res://data/world/arena_spawns.tres")
+	var gap: float = spawns.respawn_delay + spawns.min_distance_from_hero / mite.move_speed
+	var regen_per_gap: float = maxf(gap - regen.delay_after_damage, 0.0) * regen.hp_per_second
+	var lives: Array[float] = []
+	for i in 2000:
+		var hp: float = hero.max_hp
+		var packs: int = 0
+		while packs < 50:
+			var r: Dictionary = _fight(hit_chance, true)
+			hp -= r.damage
+			if hp <= 0.0:
+				break
+			packs += 1
+			hp = minf(hp + regen_per_gap, hero.max_hp)
+		lives.append(packs)
+	lives.sort()
+	print("== TEMP regen (%s): %.1fs between packs, %.0f HP back per gap" % [label, gap, regen_per_gap])
+	print("  packs per life   median %d   (worst 10%%: %d or fewer; 50 = cap)\n" % [lives[1000], lives[200]])
 
 
 func _scenario(title: String, hit_chance: float, attacking: bool) -> void:
