@@ -1,0 +1,259 @@
+[gd_resource type="TileSet" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stone_N.png" id="1_68bjk"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stone_E.png" id="2_vrpkh"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneUneven_S.png" id="3_chqdx"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneUneven_W.png" id="4_45rhr"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneMissingTiles_N.png" id="5_4l0fu"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneMissingTiles_E.png" id="6_fguan"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneMissingTiles_S.png" id="7_krrg8"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneMissingTiles_W.png" id="8_8e7uy"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stone_S.png" id="9_6gmdt"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWall_N.png" id="10_6i562"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWall_E.png" id="11_cjvmn"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWall_S.png" id="12_mr7s4"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWall_W.png" id="13_4528b"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stone_W.png" id="14_6k0wr"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWallCorner_N.png" id="15_363qi"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWallCorner_E.png" id="16_7jti3"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWallCorner_S.png" id="17_40cgt"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneWallCorner_W.png" id="18_rw01n"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_N.png" id="19_c42tf"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneColumn_N.png" id="20_84t2d"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneColumn_E.png" id="21_hv34p"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneColumn_S.png" id="22_be2ri"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneColumn_W.png" id="23_0bdme"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_E.png" id="24_3borx"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_S.png" id="25_nic3o"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_W.png" id="26_ffg4d"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneUneven_N.png" id="27_g24ov"]
+[ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneUneven_E.png" id="28_g2odu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh36e"]
+resource_name = "stone_N"
+texture = ExtResource("1_68bjk")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6v44"]
+resource_name = "stone_E"
+texture = ExtResource("2_vrpkh")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ano8g"]
+resource_name = "stoneUneven_S"
+texture = ExtResource("3_chqdx")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnkoj"]
+resource_name = "stoneUneven_W"
+texture = ExtResource("4_45rhr")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2rgg"]
+resource_name = "stoneMissingTiles_N"
+texture = ExtResource("5_4l0fu")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwfxp"]
+resource_name = "stoneMissingTiles_E"
+texture = ExtResource("6_fguan")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eg57d"]
+resource_name = "stoneMissingTiles_S"
+texture = ExtResource("7_krrg8")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_553q5"]
+resource_name = "stoneMissingTiles_W"
+texture = ExtResource("8_8e7uy")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c58af"]
+resource_name = "stone_S"
+texture = ExtResource("9_6gmdt")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhe3x"]
+resource_name = "stoneWall_N"
+texture = ExtResource("10_6i562")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxicd"]
+resource_name = "stoneWall_E"
+texture = ExtResource("11_cjvmn")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlq62"]
+resource_name = "stoneWall_S"
+texture = ExtResource("12_mr7s4")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v4gkq"]
+resource_name = "stoneWall_W"
+texture = ExtResource("13_4528b")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlu23"]
+resource_name = "stone_W"
+texture = ExtResource("14_6k0wr")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4abaq"]
+resource_name = "stoneWallCorner_N"
+texture = ExtResource("15_363qi")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vp1jy"]
+resource_name = "stoneWallCorner_E"
+texture = ExtResource("16_7jti3")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rq1sj"]
+resource_name = "stoneWallCorner_S"
+texture = ExtResource("17_40cgt")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbl46"]
+resource_name = "stoneWallCorner_W"
+texture = ExtResource("18_rw01n")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2x6cw"]
+resource_name = "stoneTile_N"
+texture = ExtResource("19_c42tf")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66gya"]
+resource_name = "stoneColumn_N"
+texture = ExtResource("20_84t2d")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hitxd"]
+resource_name = "stoneColumn_E"
+texture = ExtResource("21_hv34p")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y81yr"]
+resource_name = "stoneColumn_S"
+texture = ExtResource("22_be2ri")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lhqpg"]
+resource_name = "stoneColumn_W"
+texture = ExtResource("23_0bdme")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hywru"]
+resource_name = "stoneTile_E"
+texture = ExtResource("24_3borx")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7lh2"]
+resource_name = "stoneTile_S"
+texture = ExtResource("25_nic3o")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sv76s"]
+resource_name = "stoneTile_W"
+texture = ExtResource("26_ffg4d")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7pi7"]
+resource_name = "stoneUneven_N"
+texture = ExtResource("27_g24ov")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_clxgv"]
+resource_name = "stoneUneven_E"
+texture = ExtResource("28_g2odu")
+texture_region_size = Vector2i(64, 128)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 43)
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(64, 32)
+sources/0 = SubResource("TileSetAtlasSource_hh36e")
+sources/1 = SubResource("TileSetAtlasSource_e6v44")
+sources/2 = SubResource("TileSetAtlasSource_c58af")
+sources/3 = SubResource("TileSetAtlasSource_rlu23")
+sources/4 = SubResource("TileSetAtlasSource_2x6cw")
+sources/5 = SubResource("TileSetAtlasSource_hywru")
+sources/6 = SubResource("TileSetAtlasSource_h7lh2")
+sources/7 = SubResource("TileSetAtlasSource_sv76s")
+sources/8 = SubResource("TileSetAtlasSource_c7pi7")
+sources/9 = SubResource("TileSetAtlasSource_clxgv")
+sources/10 = SubResource("TileSetAtlasSource_ano8g")
+sources/11 = SubResource("TileSetAtlasSource_lnkoj")
+sources/12 = SubResource("TileSetAtlasSource_q2rgg")
+sources/13 = SubResource("TileSetAtlasSource_fwfxp")
+sources/14 = SubResource("TileSetAtlasSource_eg57d")
+sources/15 = SubResource("TileSetAtlasSource_553q5")
+sources/20 = SubResource("TileSetAtlasSource_bhe3x")
+sources/21 = SubResource("TileSetAtlasSource_pxicd")
+sources/22 = SubResource("TileSetAtlasSource_jlq62")
+sources/23 = SubResource("TileSetAtlasSource_v4gkq")
+sources/30 = SubResource("TileSetAtlasSource_4abaq")
+sources/31 = SubResource("TileSetAtlasSource_vp1jy")
+sources/32 = SubResource("TileSetAtlasSource_rq1sj")
+sources/33 = SubResource("TileSetAtlasSource_mbl46")
+sources/40 = SubResource("TileSetAtlasSource_66gya")
+sources/41 = SubResource("TileSetAtlasSource_hitxd")
+sources/42 = SubResource("TileSetAtlasSource_y81yr")
+sources/43 = SubResource("TileSetAtlasSource_lhqpg")
