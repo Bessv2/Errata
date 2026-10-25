@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" path="res://scenes/enemies/void_mite.tscn" id="4_mite"]
 [ext_resource type="Resource" path="res://data/monsters/void_mite.tres" id="5_mitedata"]
 [ext_resource type="Resource" path="res://data/world/arena_spawns.tres" id="6_spawns"]
+[ext_resource type="Script" path="res://scripts/systems/respawn_service.gd" id="7_respawn"]
+[ext_resource type="Resource" path="res://data/world/respawn.tres" id="8_respawncfg"]
+[ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="9_deathscreen"]
 
 [node name="Arena" type="Node2D" unique_id=2067695611]
 
@@ -43,3 +46,11 @@ monster_data = ExtResource("5_mitedata")
 config = ExtResource("6_spawns")
 floor_layer = NodePath("../Floor")
 container = NodePath("../Entities")
+
+[node name="RespawnService" type="Node" parent="." node_paths=PackedStringArray("floor_layer")]
+script = ExtResource("7_respawn")
+config = ExtResource("8_respawncfg")
+floor_layer = NodePath("../Floor")
+
+[node name="DeathScreen" parent="." node_paths=PackedStringArray("respawn_service") instance=ExtResource("9_deathscreen")]
+respawn_service = NodePath("../RespawnService")

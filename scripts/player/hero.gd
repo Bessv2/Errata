@@ -48,11 +48,34 @@ func _update_aim() -> void:
 
 # --- Death -------------------------------------------------------------------
 
-# For now the hero just stops; the death screen with "Respawn nearby" comes next.
+## How dark and see-through the hero's body gets on death.
+const DEAD_TINT: Color = Color(0.25, 0.2, 0.3, 0.35)
+## Seconds the fade to DEAD_TINT takes.
+const DEATH_FADE_TIME: float = 0.6
+
+var _death_tween: Tween
+
+
+# Stops the hero and fades their body out. The death screen takes it from here.
 func _on_died() -> void:
 	velocity = Vector2.ZERO
 	_aim_indicator.visible = false
+	_sprite.stop()
+	_death_tween = create_tween()
+	_death_tween.tween_property(_sprite, "modulate", DEAD_TINT, DEATH_FADE_TIME)
 	CombatEvents.character_died.emit(self)
+
+
+## Brings the hero back at [param at] (world position) with full hit points.
+func revive(at: Vector2) -> void:
+	if _death_tween:
+		_death_tween.kill()
+	global_position = at
+	velocity = Vector2.ZERO
+	health.reset(stats.max_hp)
+	_sprite.modulate = Color.WHITE
+	_aim_indicator.visible = true
+	reset_physics_interpolation()
 
 
 # --- Animation ---------------------------------------------------------------
