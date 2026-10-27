@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/north-east.png" id="hb_north-east"]
 [ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/east.png" id="hb_east"]
 [ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/hero/hero_b/south-east.png" id="hb_south-east"]
+[ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_2_small_28px.png" id="mite_2_small"]
 [ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_1.png" id="mite_1"]
 [ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_2.png" id="mite_2"]
 [ext_resource type="Texture2D" path="res://assets/art/style_test/candidates/void_mite/mite_3.png" id="mite_3"]
@@ -122,6 +123,12 @@ script = ExtResource("3_cand")
 label = "PixelLab B: hooded, maul"
 frames = SubResource("Frames_hero_b")
 feet_offset = 22.0
+
+[sub_resource type="Resource" id="Cand_mite_2_small"]
+script = ExtResource("3_cand")
+label = "APPROVED: #2 cracked violet, shrunk to 28px"
+texture = ExtResource("mite_2_small")
+feet_offset = 13.0
 
 [sub_resource type="Resource" id="Cand_mite_1"]
 script = ExtResource("3_cand")
@@ -272,7 +279,7 @@ candidates = Array[ExtResource("3_cand")]([SubResource("Cand_hero_a"), SubResour
 script = ExtResource("2_slot")
 title = "Void Mite"
 kind = "character"
-candidates = Array[ExtResource("3_cand")]([SubResource("Cand_mite_1"), SubResource("Cand_mite_2"), SubResource("Cand_mite_3"), SubResource("Cand_mite_4"), SubResource("Cand_mite_5"), SubResource("Cand_mite_6"), SubResource("Cand_mite")])
+candidates = Array[ExtResource("3_cand")]([SubResource("Cand_mite_2_small"), SubResource("Cand_mite_1"), SubResource("Cand_mite_2"), SubResource("Cand_mite_3"), SubResource("Cand_mite_4"), SubResource("Cand_mite_5"), SubResource("Cand_mite_6"), SubResource("Cand_mite")])
 
 [sub_resource type="Resource" id="Slot_rift"]
 script = ExtResource("2_slot")
