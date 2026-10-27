@@ -3,7 +3,7 @@ extends Node
 
 ## The hero's animated sprite.
 @export var sprite: AnimatedSprite2D
-## Run-cycle frames where a foot hits the ground (10-frame cycle).
+## Run-cycle frames where a foot hits the ground (set per hero in hero.tscn).
 @export var step_frames: Array[int] = [2, 7]
 
 

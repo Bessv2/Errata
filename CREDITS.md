@@ -9,7 +9,8 @@ Remove a row when its asset is replaced.
 | Name | Files | Creator | Source | Licence | Used for | Placeholder? |
 |---|---|---|---|---|---|---|
 | Isometric Miniature Dungeon | `assets/art/placeholder/kenney_dungeon/*.png` (scaled to 1/4 size) | Kenney (kenney.nl) | [kenney.nl](https://kenney.nl/assets/isometric-miniature-dungeon) | CC0 1.0 | Arena floor, back walls | Yes |
-| Isometric Miniature Dungeon (Male character) | `assets/art/placeholder/kenney_hero/*.png` (idle + run, 8 directions, scaled to 1/4 size) | Kenney (kenney.nl) | [kenney.nl](https://kenney.nl/assets/isometric-miniature-dungeon) | CC0 1.0 | Hero sprite | Yes |
+| Isometric Miniature Dungeon (Male character) | `assets/art/placeholder/kenney_hero/*.png` (idle + run, 8 directions, scaled to 1/4 size) | Kenney (kenney.nl) | [kenney.nl](https://kenney.nl/assets/isometric-miniature-dungeon) | CC0 1.0 | Placeholder comparison on the style-test board (no longer the in-game hero) | Yes |
+| Hero A (idle + run, 8 directions) | `assets/art/hero/**` | Generated with PixelLab for Errata (2026-10-27); approved by Geordon | [pixellab.ai](https://pixellab.ai) | PixelLab terms of service ([pixellab.ai/termsofservice](https://pixellab.ai/termsofservice)); check commercial-use rights for the plan used before shipping | In-game hero sprite | No |
 | Style-test candidates (hero A/B, 6 Void Mites, 5 rift-touched, 5 anvils, 3 ground tiles) | `assets/art/style_test/candidates/**` | Generated with PixelLab for Errata (2026-10-25) | [pixellab.ai](https://pixellab.ai) | PixelLab terms of service ([pixellab.ai/termsofservice](https://pixellab.ai/termsofservice)); check commercial-use rights for the plan used before shipping | Style-test board only, not in the game | Candidate (awaiting approval) |
 
 ## Audio

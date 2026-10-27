@@ -49,7 +49,7 @@ cleave = NodePath("../Cleave")
 material = SubResource("ShaderMaterial_flash")
 sprite_frames = ExtResource("2_hpob4")
 animation = &"idle_3"
-offset = Vector2(0, -48)
+offset = Vector2(0, -20)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1993216075]
 position_smoothing_enabled = true
@@ -68,6 +68,7 @@ color = Color(0.75, 0.12, 0.12, 1)
 [node name="Audio" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("12_audio")
 sprite = NodePath("../Sprite")
+step_frames = Array[int]([0, 4])
 
 [node name="TempRegen_PLAYTEST" type="Node" parent="." node_paths=PackedStringArray("health")]
 script = ExtResource("13_regen")
