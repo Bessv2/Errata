@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_E.png" id="24_3borx"]
 [ext_resource type="Texture2D" path="res://assets/art/world/ground/flagstone_soft.png" id="25_chqdx"]
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_S.png" id="25_nic3o"]
-[ext_resource type="Texture2D" path="res://assets/art/world/ground/ash.png" id="26_45rhr"]
+[ext_resource type="Texture2D" path="res://assets/art/world/ground/ash_soft.png" id="26_45rhr"]
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneTile_W.png" id="26_ffg4d"]
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneUneven_N.png" id="27_g24ov"]
 [ext_resource type="Texture2D" path="res://assets/art/placeholder/kenney_dungeon/stoneUneven_E.png" id="28_g2odu"]
@@ -207,7 +207,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/texture_origin = Vector2i(0, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45rhr"]
-resource_name = "ash"
+resource_name = "ash_soft"
 texture = ExtResource("26_45rhr")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
