@@ -1,0 +1,69 @@
+[gd_scene format=4]
+
+[ext_resource type="TileSet" path="res://scenes/world/arena_tiles.tres" id="1_pbd5s"]
+[ext_resource type="PackedScene" path="res://scenes/player/hero.tscn" id="2_ldtp4"]
+[ext_resource type="Script" path="res://scripts/systems/enemy_spawner.gd" id="3_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/void_mite.tscn" id="4_mite"]
+[ext_resource type="Resource" path="res://data/monsters/void_mite.tres" id="5_mitedata"]
+[ext_resource type="Resource" path="res://data/world/arena_spawns.tres" id="6_spawns"]
+[ext_resource type="Script" path="res://scripts/systems/respawn_service.gd" id="7_respawn"]
+[ext_resource type="Resource" path="res://data/world/respawn.tres" id="8_respawncfg"]
+[ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="9_deathscreen"]
+[ext_resource type="Script" path="res://scripts/systems/vfx.gd" id="10_vfx"]
+[ext_resource type="PackedScene" path="res://scenes/ui/touch_controls.tscn" id="14_touch"]
+[ext_resource type="PackedScene" path="res://scenes/fx/monster_hit.tscn" id="11_mhit"]
+[ext_resource type="PackedScene" path="res://scenes/fx/monster_death.tscn" id="12_mdeath"]
+[ext_resource type="PackedScene" path="res://scenes/fx/hero_hurt.tscn" id="13_hhurt"]
+
+[node name="Arena" type="Node2D" unique_id=2067695611]
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=580326943]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 2, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 51, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 4, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1, 0, 51, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 5, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 2, 0, 51, 0, 0, 0, 0, 0, 0, 0, 6, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 51, 0, 0, 0, 0, 0, 0, 0, 6, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 9, 0, 51, 0, 0, 0, 0, 0, 0, 0, 6, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 6, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 4, 0, 51, 0, 0, 0, 0, 0, 0, 0, 7, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10, 0, 51, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 7, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 8, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 51, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 9, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 8, 0, 51, 0, 0, 0, 0, 0, 0, 0, 10, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 10, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 1, 0, 51, 0, 0, 0, 0, 0, 0, 0, 11, 0, 2, 0, 51, 0, 0, 0, 0, 0, 0, 0, 11, 0, 3, 0, 51, 0, 0, 0, 0, 0, 0, 0, 11, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 2, 0, 51, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 51, 0, 0, 0, 0, 0, 0, 0, 12, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 12, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 2, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 3, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 5, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 7, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 8, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 9, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 10, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 11, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 12, 0, 50, 0, 0, 0, 0, 0, 0, 0, 13, 0, 13, 0, 50, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_pbd5s")
+
+[node name="Entities" type="Node2D" parent="." unique_id=356716474]
+y_sort_enabled = true
+
+[node name="Walls" type="TileMapLayer" parent="Entities" unique_id=361993564]
+modulate = Color(0.5, 0.5, 0.6, 1)
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAEAFQAAAAAAAAABAAAAFAAAAAAAAAAAAAIAFQAAAAAAAAACAAAAFAAAAAAAAAAAAAMAFQAAAAAAAAADAAAAFAAAAAAAAAAAAAQAFQAAAAAAAAAEAAAAFAAAAAAAAAAAAAUAFQAAAAAAAAAFAAAAFAAAAAAAAAAAAAYAFQAAAAAAAAAGAAAAFAAAAAAAAAAAAAcAFQAAAAAAAAAHAAAAFAAAAAAAAAAAAAgAFQAAAAAAAAAIAAAAFAAAAAAAAAAAAAkAFQAAAAAAAAAJAAAAFAAAAAAAAAAAAAoAFQAAAAAAAAAKAAAAFAAAAAAAAAAAAAsAFQAAAAAAAAALAAAAFAAAAAAAAAAAAAwAFQAAAAAAAAAMAAAAFAAAAAAAAAAAAA0AFQAAAAAAAAANAAAAFAAAAAAAAAAAAAAAHgAAAAAAAAA=")
+tile_set = ExtResource("1_pbd5s")
+
+[node name="Hero" type="CharacterBody2D" parent="Entities" unique_id=1511143480 instance=ExtResource("2_ldtp4")]
+position = Vector2(32, 224)
+motion_mode = 1
+
+[node name="Bounds" type="StaticBody2D" parent="." unique_id=485141755]
+
+[node name="Edge" type="CollisionPolygon2D" parent="Bounds" unique_id=1729830032]
+build_mode = 1
+polygon = PackedVector2Array(32, 0, 480, 224, 32, 448, -416, 224, 32, 0)
+
+[node name="HeroSpawn" type="Marker2D" parent="." unique_id=1958662881]
+position = Vector2(32, 224)
+
+[node name="Spawner" type="Node" parent="." node_paths=PackedStringArray("floor_layer", "container")]
+script = ExtResource("3_spawner")
+monster_scene = ExtResource("4_mite")
+monster_data = ExtResource("5_mitedata")
+config = ExtResource("6_spawns")
+floor_layer = NodePath("../Floor")
+container = NodePath("../Entities")
+
+[node name="RespawnService" type="Node" parent="." node_paths=PackedStringArray("floor_layer")]
+script = ExtResource("7_respawn")
+config = ExtResource("8_respawncfg")
+floor_layer = NodePath("../Floor")
+
+[node name="DeathScreen" parent="." node_paths=PackedStringArray("respawn_service") instance=ExtResource("9_deathscreen")]
+respawn_service = NodePath("../RespawnService")
+
+[node name="Vfx" type="Node2D" parent="."]
+z_index = 2
+script = ExtResource("10_vfx")
+monster_hit_fx = ExtResource("11_mhit")
+monster_death_fx = ExtResource("12_mdeath")
+hero_hurt_fx = ExtResource("13_hhurt")
+
+[node name="TouchControls" parent="." instance=ExtResource("14_touch")]
