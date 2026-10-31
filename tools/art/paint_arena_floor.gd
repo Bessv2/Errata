@@ -1,7 +1,7 @@
 extends SceneTree
 ## Paints the arena floor with the approved PixelLab ground tiles.
 ## Adds the tiles to the arena tileset (if missing), then repaints every cell of
-## the arena's Floor layer: mostly flagstone, with patches of ash.
+## the arena's Floor layer: mostly softened flagstone, with patches of ash.
 ## Run after changing the floor art or the arena's shape:
 ##   godot --headless --path . --script res://tools/art/paint_arena_floor.gd
 ## Only the Floor layer's tile data and tint are touched in arena.tscn; the rest
@@ -12,7 +12,7 @@ const ARENA_PATH: String = "res://scenes/world/arena.tscn"
 
 ## Tileset source id -> texture. Ids 50+ are the approved ground tiles.
 const GROUND_TILES: Dictionary = {
-	50: "res://assets/art/world/ground/flagstone.png",
+	50: "res://assets/art/world/ground/flagstone_soft.png",
 	51: "res://assets/art/world/ground/ash.png",
 }
 ## How far below the image centre the tile's top face sits (PixelLab 64px thin tiles).
