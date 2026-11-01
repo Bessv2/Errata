@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3u4qab77ini"
-path="res://.godot/imported/stone_E.png-679c15465572dbda5722f7f551d3470d.ctex"
+uid="uid://drgqwuvbg8c77"
+path="res://.godot/imported/wall_3_bone_rust.png-43b262ff62e534fa55f1ed15ae8bd4cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/placeholder/kenney_dungeon/stone_E.png"
-dest_files=["res://.godot/imported/stone_E.png-679c15465572dbda5722f7f551d3470d.ctex"]
+source_file="res://assets/art/style_test/candidates/wall/wall_3_bone_rust.png"
+dest_files=["res://.godot/imported/wall_3_bone_rust.png-43b262ff62e534fa55f1ed15ae8bd4cb.ctex"]
 
 [params]
 

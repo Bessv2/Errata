@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dasoowdf2q7go"
-path="res://.godot/imported/stoneColumn_S.png-3201820bdbb6c51e62aa2baf0510490d.ctex"
+uid="uid://7mvnb2nu1ntm"
+path="res://.godot/imported/ruin_wall.png-c1a334ca45fdfa9f0732106db47c33b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/placeholder/kenney_dungeon/stoneColumn_S.png"
-dest_files=["res://.godot/imported/stoneColumn_S.png-3201820bdbb6c51e62aa2baf0510490d.ctex"]
+source_file="res://assets/art/world/walls/ruin_wall.png"
+dest_files=["res://.godot/imported/ruin_wall.png-c1a334ca45fdfa9f0732106db47c33b1.ctex"]
 
 [params]
 

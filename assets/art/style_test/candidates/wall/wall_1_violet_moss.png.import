@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c42xioocbwnbx"
-path="res://.godot/imported/stoneUneven_N.png-51b9eebce26983320ed8828d77481e3e.ctex"
+uid="uid://b1khsgmq8yece"
+path="res://.godot/imported/wall_1_violet_moss.png-2a5938467fea53162fa2defad8758dc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/placeholder/kenney_dungeon/stoneUneven_N.png"
-dest_files=["res://.godot/imported/stoneUneven_N.png-51b9eebce26983320ed8828d77481e3e.ctex"]
+source_file="res://assets/art/style_test/candidates/wall/wall_1_violet_moss.png"
+dest_files=["res://.godot/imported/wall_1_violet_moss.png-2a5938467fea53162fa2defad8758dc7.ctex"]
 
 [params]
 

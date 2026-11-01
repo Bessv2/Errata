@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy1dsrnjj26mv"
-path="res://.godot/imported/stoneWall_E.png-6c703cc728870d1dd925f5a807d09bc7.ctex"
+uid="uid://j2xs53vmnhxm"
+path="res://.godot/imported/wall_2_grey_ruin.png-58808924afad886e9db1dc715d81bece.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/placeholder/kenney_dungeon/stoneWall_E.png"
-dest_files=["res://.godot/imported/stoneWall_E.png-6c703cc728870d1dd925f5a807d09bc7.ctex"]
+source_file="res://assets/art/style_test/candidates/wall/wall_2_grey_ruin.png"
+dest_files=["res://.godot/imported/wall_2_grey_ruin.png-58808924afad886e9db1dc715d81bece.ctex"]
 
 [params]
 

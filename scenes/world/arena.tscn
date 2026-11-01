@@ -26,9 +26,8 @@ tile_set = ExtResource("1_pbd5s")
 y_sort_enabled = true
 
 [node name="Walls" type="TileMapLayer" parent="Entities" unique_id=361993564]
-modulate = Color(0.5, 0.5, 0.6, 1)
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAEAFQAAAAAAAAABAAAAFAAAAAAAAAAAAAIAFQAAAAAAAAACAAAAFAAAAAAAAAAAAAMAFQAAAAAAAAADAAAAFAAAAAAAAAAAAAQAFQAAAAAAAAAEAAAAFAAAAAAAAAAAAAUAFQAAAAAAAAAFAAAAFAAAAAAAAAAAAAYAFQAAAAAAAAAGAAAAFAAAAAAAAAAAAAcAFQAAAAAAAAAHAAAAFAAAAAAAAAAAAAgAFQAAAAAAAAAIAAAAFAAAAAAAAAAAAAkAFQAAAAAAAAAJAAAAFAAAAAAAAAAAAAoAFQAAAAAAAAAKAAAAFAAAAAAAAAAAAAsAFQAAAAAAAAALAAAAFAAAAAAAAAAAAAwAFQAAAAAAAAAMAAAAFAAAAAAAAAAAAA0AFQAAAAAAAAANAAAAFAAAAAAAAAAAAAAAHgAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 52, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 52, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 52, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 52, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 52, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 52, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 52, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 52, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 52, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 52, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 52, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 52, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 52, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0)
 tile_set = ExtResource("1_pbd5s")
 
 [node name="Hero" type="CharacterBody2D" parent="Entities" unique_id=1511143480 instance=ExtResource("2_ldtp4")]
