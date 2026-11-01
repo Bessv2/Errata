@@ -8,6 +8,8 @@ const BONE: Color = Color(0.85, 0.82, 0.72)
 const VOID: Color = Color(0.03, 0.02, 0.05)
 
 var _root: Control
+# Whether the game was already paused (e.g. pause menu open) before the cover went up.
+var _was_paused: bool = false
 
 
 func _ready() -> void:
@@ -17,6 +19,7 @@ func _ready() -> void:
 		queue_free()
 		return
 	_build()
+	_root.visible = false
 	get_viewport().size_changed.connect(_check)
 	_check()
 
@@ -45,5 +48,11 @@ func _build() -> void:
 func _check() -> void:
 	var size: Vector2 = get_viewport().get_visible_rect().size
 	var portrait: bool = size.y > size.x
+	if portrait == _root.visible:
+		return
 	_root.visible = portrait
-	get_tree().paused = portrait
+	if portrait:
+		_was_paused = get_tree().paused
+		get_tree().paused = true
+	else:
+		get_tree().paused = _was_paused

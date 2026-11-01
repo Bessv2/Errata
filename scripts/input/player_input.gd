@@ -8,6 +8,8 @@ enum Device { KEYBOARD_MOUSE, GAMEPAD, TOUCH }
 
 ## Fired when the player switches device (e.g. picks up a controller).
 signal device_changed(device: Device)
+## Fired when the player presses pause (Esc or controller Start). The pause menu listens.
+signal pause_requested
 
 ## Stick input below this length counts as "not touched".
 const STICK_DEADZONE: float = 0.2
@@ -32,12 +34,16 @@ var _touch_aim: Vector2 = Vector2.ZERO
 # --- Device detection --------------------------------------------------------
 
 func _ready() -> void:
+	# Keep listening while the game is paused, so pause can also close the menu.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	# Phones and tablets start in touch mode so the on-screen controls show at once.
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		active_device = Device.TOUCH
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		pause_requested.emit()
 	var device: Device = active_device
 	if event is InputEventKey:
 		device = Device.KEYBOARD_MOUSE

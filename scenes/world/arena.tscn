@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" path="res://scenes/fx/monster_hit.tscn" id="11_mhit"]
 [ext_resource type="PackedScene" path="res://scenes/fx/monster_death.tscn" id="12_mdeath"]
 [ext_resource type="PackedScene" path="res://scenes/fx/hero_hurt.tscn" id="13_hhurt"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="15_pause"]
 
 [node name="Arena" type="Node2D" unique_id=2067695611]
 
@@ -67,3 +68,5 @@ monster_death_fx = ExtResource("12_mdeath")
 hero_hurt_fx = ExtResource("13_hhurt")
 
 [node name="TouchControls" parent="." instance=ExtResource("14_touch")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_pause")]

@@ -78,6 +78,10 @@ cleave={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"device":-1,"button_index":1), Object(InputEventJoypadButton,"device":-1,"button_index":0)]
 }
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"device":-1,"physical_keycode":4194305), Object(InputEventJoypadButton,"device":-1,"button_index":6)]
+}
 
 [layer_names]
 

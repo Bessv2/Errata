@@ -23,6 +23,8 @@ var _button_offset: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Keep tracking fingers while paused, so a finger lifted during the pause is not stuck down.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	PlayerInput.device_changed.connect(_on_device_changed)
 	visible = PlayerInput.active_device == PlayerInput.Device.TOUCH
 
