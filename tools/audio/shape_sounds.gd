@@ -8,11 +8,12 @@ extends SceneTree
 ## print each source's loudness over time instead, to help choose where to cut.
 
 ## Recipe fields (all optional except src and out):
-##   src: file name in the source folder (or a res:// path); out: res:// path to write
+##   src: file name in the source folder; out: res:// path to write
 ##   start, length: seconds to cut from the source (length 0 = to the end)
 ##   speed: playback rate (0.7 = 30% slower and deeper)
 ##   lowpass_hz: cut sound above this frequency (0 = off)
 ##   fade_in, fade_out: seconds; gain_db: loudness change
+##   peak: scale so the loudest moment reaches this level (0..1), for quiet sources
 ##   layer: another recipe (without out) mixed underneath, starting at layer_at seconds
 
 ## The low thump laid under both Cleave hits.
@@ -20,10 +21,10 @@ const THUMP: Dictionary = { "src": "Drs_Wood_DoubleDoor_Close_01.wav", "start": 
 	"speed": 0.65, "lowpass_hz": 700.0, "fade_out": 0.15, "gain_db": 3.0 }
 
 const RECIPES: Array[Dictionary] = [
-	# Cleave swing: the original arrow whoosh, much slower and with the sharp hiss cut,
-	# so it reads as a heavy hammer moving through the air.
-	{ "src": "res://assets/audio/sfx/free_weapon_sounds/cleave_swing.wav", "out": "res://assets/audio/sfx/free_weapon_sounds/cleave_swing_heavy.wav",
-	  "speed": 0.6, "lowpass_hz": 1400.0, "fade_out": 0.08, "gain_db": 4.0 },
+	# Cleave swing: a fire whoosh with only the low end kept, slowed a little,
+	# so it reads as a heavy hammer moving air rather than a blade.
+	{ "src": "Mgc_Fire_Throw_01.wav", "out": "res://assets/audio/sfx/small_sound_kit/cleave_swing.wav",
+	  "length": 0.5, "speed": 0.8, "lowpass_hz": 900.0, "fade_out": 0.15, "peak": 0.8 },
 	# Cleave hits: the two bone impacts, each with a deepened wooden door slam
 	# underneath so the hammer lands with weight.
 	{ "src": "Impact_Guts_Gore_01.wav", "out": "res://assets/audio/sfx/small_sound_kit/cleave_hit_1.wav",
@@ -37,6 +38,7 @@ const RECIPES: Array[Dictionary] = [
 	{ "src": "DailySounds_Stick_Snap.wav", "out": "res://assets/audio/sfx/dailysounds/mite_death_2.wav",
 	  "start": 0.6, "length": 0.35, "speed": 0.8, "lowpass_hz": 3000.0, "fade_out": 0.1 },
 ]
+
 
 func _init() -> void:
 	var args: PackedStringArray = OS.get_cmdline_user_args()
@@ -53,12 +55,12 @@ func _init() -> void:
 			_save(shaped, recipe["out"])
 	quit()
 
+
 # --- Recipes -------------------------------------------------------------------
 
 # Returns { "rate": int, "samples": PackedFloat32Array } for one recipe (and its layer).
 func _shape(folder: String, recipe: Dictionary) -> Dictionary:
-	var src: String = recipe["src"]
-	var clip: Dictionary = _load_mono(ProjectSettings.globalize_path(src) if src.begins_with("res://") else folder.path_join(src))
+	var clip: Dictionary = _load_mono(folder.path_join(recipe["src"]))
 	var rate: int = clip["rate"]
 	var s: PackedFloat32Array = clip["samples"]
 	var start: int = int(recipe.get("start", 0.0) * rate)
@@ -71,10 +73,17 @@ func _shape(folder: String, recipe: Dictionary) -> Dictionary:
 	var gain: float = db_to_linear(recipe.get("gain_db", 0.0))
 	for i in s.size():
 		s[i] *= gain
+	if recipe.has("peak"):
+		var loudest: float = 0.0
+		for v in s:
+			loudest = maxf(loudest, absf(v))
+		for i in s.size():
+			s[i] *= recipe["peak"] / maxf(loudest, 0.0001)
 	if recipe.has("layer"):
 		var under: Dictionary = _shape(folder, recipe["layer"])
 		s = _mix(s, under["samples"], int(recipe.get("layer_at", 0.0) * rate))
 	return { "rate": rate, "samples": s }
+
 
 # --- Sound processing ------------------------------------------------------------
 
@@ -101,6 +110,7 @@ func _lowpass(s: PackedFloat32Array, rate: int, hz: float) -> PackedFloat32Array
 			s[i] = y
 	return s
 
+
 func _fade(s: PackedFloat32Array, fade_in: int, fade_out: int) -> PackedFloat32Array:
 	for i in mini(fade_in, s.size()):
 		s[i] *= float(i) / fade_in
@@ -108,12 +118,14 @@ func _fade(s: PackedFloat32Array, fade_in: int, fade_out: int) -> PackedFloat32A
 		s[s.size() - 1 - i] *= float(i) / fade_out
 	return s
 
+
 func _mix(top: PackedFloat32Array, under: PackedFloat32Array, at: int) -> PackedFloat32Array:
 	if top.size() < at + under.size():
 		top.resize(at + under.size())
 	for i in under.size():
 		top[at + i] += under[i]
 	return top
+
 
 # --- Files -----------------------------------------------------------------------
 
@@ -167,5 +179,5 @@ func _probe(folder: String) -> void:
 			for i in range(w, mini(w + step, s.size())):
 				sum += s[i] * s[i]
 			var rms: float = sqrt(sum / step)
-			line += " .:-=+*#%@"[clampi(int(rms * 30.0), 0, 9)]
+			line += " .:-=+*#%@"[clampi(int((linear_to_db(maxf(rms, 0.000001)) + 60.0) / 6.0), 0, 9)]
 		print("  |" + line + "|")
