@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" path="res://assets/audio/placeholder/kenney_interface/confirmation_002.wav" id="2_vomee"]
 [ext_resource type="Script" path="res://scripts/systems/types/sound_bank.gd" id="3_q8b63"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/cleave_hit_2.wav" id="3_vuruy"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/free_weapon_sounds/cleave_swing.wav" id="4_d41ug"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/free_weapon_sounds/cleave_swing_heavy.wav" id="4_d41ug"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/footstep_1.wav" id="6_0aopw"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/footstep_2.wav" id="7_apbxw"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/footstep_3.wav" id="8_m8tm3"]
@@ -14,8 +14,8 @@
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/hero_hurt.wav" id="11_8javo"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/hero_respawn.wav" id="12_qtdcv"]
 [ext_resource type="AudioStream" path="res://assets/audio/sfx/dailysounds/mite_death_1.wav" id="13_usqjx"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/mite_death_2.wav" id="14_5ix13"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/dailysounds/mite_telegraph.wav" id="15_k43si"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/dailysounds/mite_death_2.wav" id="14_5ix13"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/small_sound_kit/mite_telegraph.wav" id="15_k43si"]
 
 [sub_resource type="Resource" id="Resource_wqq6n"]
 script = ExtResource("1_lqwua")
@@ -26,7 +26,7 @@ volume_db = -2.0
 script = ExtResource("1_lqwua")
 streams = Array[AudioStream]([ExtResource("4_d41ug")])
 volume_db = -4.0
-pitch_variance = 0.12
+pitch_variance = 0.06
 
 [sub_resource type="Resource" id="Resource_1hvkj"]
 script = ExtResource("1_lqwua")
@@ -57,12 +57,14 @@ script = ExtResource("1_lqwua")
 streams = Array[AudioStream]([ExtResource("13_usqjx"), ExtResource("14_5ix13")])
 volume_db = -2.0
 pitch_variance = 0.12
+min_interval = 0.08
 
 [sub_resource type="Resource" id="Resource_4do16"]
 script = ExtResource("1_lqwua")
 streams = Array[AudioStream]([ExtResource("15_k43si")])
-volume_db = -6.0
+volume_db = -9.0
 pitch_variance = 0.1
+min_interval = 0.4
 
 [sub_resource type="Resource" id="Resource_ulrne"]
 script = ExtResource("1_lqwua")

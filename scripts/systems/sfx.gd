@@ -10,6 +10,8 @@ var _players: Array[AudioStreamPlayer] = []
 var _next: int = 0
 # Frame of the last Cleave hit sound, so one swing hitting five mites plays once.
 var _last_hit_frame: int = -1
+# When each sound last played (msec), for SoundEntry.min_interval.
+var _last_played: Dictionary[StringName, int] = {}
 
 
 func _ready() -> void:
@@ -30,6 +32,10 @@ func play(sound: StringName) -> void:
 	var entry: SoundEntry = BANK.entries.get(sound)
 	if entry == null or entry.streams.is_empty():
 		return
+	var now: int = Time.get_ticks_msec()
+	if entry.min_interval > 0.0 and now - _last_played.get(sound, -1000000) < int(entry.min_interval * 1000.0):
+		return
+	_last_played[sound] = now
 	var player: AudioStreamPlayer = _players[_next]
 	_next = (_next + 1) % VOICES
 	player.stream = entry.streams.pick_random()

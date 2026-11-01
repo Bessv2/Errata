@@ -9,3 +9,6 @@ extends Resource
 @export var volume_db: float = 0.0
 ## Random pitch change each play, e.g. 0.08 = up to 8% higher or lower.
 @export var pitch_variance: float = 0.08
+## Shortest time in seconds between two plays of this sound; extra plays inside
+## the gap are skipped (stops a whole pack winding up from stacking). 0 = no limit.
+@export var min_interval: float = 0.0
