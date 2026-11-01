@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CreditsData" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/types/credits_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+text = "ERRATA
+Designed by Geordon
+
+ART
+Hero, Void Mite and arena tiles generated with PixelLab (pixellab.ai) for Errata
+
+SOUND
+Sound effects by DailySounds (dailysounds.org), CC BY 4.0. Clips trimmed.
+Small Sound Kit by DailySounds (dailysounds.org), CC BY 4.0. Clips trimmed and reshaped.
+Interface Sounds by Kenney (kenney.nl), CC0
+
+ENGINE
+Made with Godot Engine (godotengine.org/license)"

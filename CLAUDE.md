@@ -86,8 +86,29 @@ tests/         # automated tests
 
 ### Art and audio
 - 2D isometric, 2:1 tiles. One character resolution and one palette for everything (set by the approved style test).
-- Placeholders: CC0 only (e.g. Kenney). Log every asset and its license in `CREDITS.md`.
+- Placeholders: CC0 or CC-BY (with the required credit in `CREDITS.md`), e.g. Kenney. Log every asset and its license in `CREDITS.md`.
 - Never use art, names, or text from Diablo, Path of Exile, or any other game.
+
+### Approved asset sources
+You may pull assets from these sources without asking, as long as the rules below are met:
+- itch.io free game assets: https://itch.io/game-assets/free/tag-godot
+- The Godot Asset Library: https://godotengine.org/asset-library/asset
+
+Rules:
+- Art, audio and fonts licensed CC0: use freely.
+- CC-BY: allowed, but add the required credit to CREDITS.md.
+- Any other license (non-commercial, no-redistribution, custom, or no license stated): do not use. Ask first.
+- Log every asset in CREDITS.md: name, creator, source URL, license, and what it's used for.
+- Asset packs must only contain images, audio, fonts or Godot resources. If a download contains an .exe, installer or script you didn't expect, delete it and tell me.
+- Everything must match the art spec (isometric, one character resolution, one palette). Don't mix styles just because something is free.
+- Godot Asset Library plugins/addons are code, not assets: still ask before installing any of them, and explain what it does and why we need it.
+
+### The `_incoming` folder
+`C:\Godot\errata\_incoming\` holds assets Geordon has bought or downloaded himself. Everything in it is cleared for use; no licence approval needed. The other rules still apply:
+- Log every asset you use in CREDITS.md: name, creator, where it came from, licence (or "purchased"), and what it's used for. If the files don't say who made it or what the licence is, ask Geordon when you log it.
+- Check the contents: only images, audio, fonts or Godot resources get copied. If a pack contains an .exe, installer or script, don't copy it and tell him.
+- Everything must still match the art spec. Don't use something just because it's in the folder.
+- Copy only the files actually used into `assets/`. The folder itself is never committed (it's in `.gitignore`).
 
 ## Workflow
 

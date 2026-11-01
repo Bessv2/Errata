@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TouchConfig" format=3]
+
+[ext_resource type="Script" path="res://scripts/systems/types/touch_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+joystick_zone = 0.5
+joystick_radius = 36.0
+joystick_deadzone = 0.15
+button_radius = 32.0
+button_margin = 22.0
+aim_drag_radius = 32.0
+aim_deadzone = 0.3

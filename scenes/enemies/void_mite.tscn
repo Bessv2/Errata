@@ -1,0 +1,40 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/void_mite.gd" id="1_mite"]
+[ext_resource type="Resource" path="res://data/monsters/void_mite.tres" id="2_data"]
+[ext_resource type="Script" path="res://scripts/enemies/void_mite_visual.gd" id="3_visual"]
+[ext_resource type="Script" path="res://scripts/systems/health.gd" id="4_health"]
+[ext_resource type="Shader" path="res://scenes/fx/hit_flash.gdshader" id="5_flashshader"]
+[ext_resource type="Script" path="res://scripts/systems/hit_flash.gd" id="6_hitflash"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mite"]
+radius = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flash"]
+resource_local_to_scene = true
+shader = ExtResource("5_flashshader")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_amount = 0.0
+
+[node name="VoidMite" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_mite")
+data = ExtResource("2_data")
+
+[node name="Feet" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mite")
+
+[node name="Visual" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_flash")
+script = ExtResource("3_visual")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_health")
+
+[node name="HitFlash" type="Node" parent="." node_paths=PackedStringArray("target", "health")]
+script = ExtResource("6_hitflash")
+target = NodePath("../Visual")
+health = NodePath("../Health")
+color = Color(0.92, 0.9, 0.85, 1)

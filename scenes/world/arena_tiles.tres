@@ -1,0 +1,34 @@
+[gd_resource type="TileSet" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/art/world/walls/ruin_wall.png" id="3_7cl7y"]
+[ext_resource type="Texture2D" path="res://assets/art/world/ground/flagstone_soft.png" id="25_chqdx"]
+[ext_resource type="Texture2D" path="res://assets/art/world/ground/ash_soft.png" id="26_45rhr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chqdx"]
+resource_name = "flagstone_soft"
+texture = ExtResource("25_chqdx")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45rhr"]
+resource_name = "ash_soft"
+texture = ExtResource("26_45rhr")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdl6h"]
+resource_name = "ruin_wall"
+texture = ExtResource("3_7cl7y")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(64, 32)
+sources/50 = SubResource("TileSetAtlasSource_chqdx")
+sources/51 = SubResource("TileSetAtlasSource_45rhr")
+sources/52 = SubResource("TileSetAtlasSource_hdl6h")
